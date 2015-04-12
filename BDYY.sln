@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDYY_WEB", "BDYY\BDYY_WEB.csproj", "{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProvider", "DataProvider\DataProvider.csproj", "{78E715F5-4735-4C07-AE08-252CA9FC9A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDYY_WEB", "BDYY_WEB\BDYY_WEB.csproj", "{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDYY_WEB.Models", "BDYY_WEB.Models\BDYY_WEB.Models.csproj", "{8A09668E-8917-4C68-A947-1DD33C14A733}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78E715F5-4735-4C07-AE08-252CA9FC9A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E715F5-4735-4C07-AE08-252CA9FC9A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E715F5-4735-4C07-AE08-252CA9FC9A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E715F5-4735-4C07-AE08-252CA9FC9A67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E87C5A7B-0909-448E-9F9E-CFEB28B9F6BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A09668E-8917-4C68-A947-1DD33C14A733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A09668E-8917-4C68-A947-1DD33C14A733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A09668E-8917-4C68-A947-1DD33C14A733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A09668E-8917-4C68-A947-1DD33C14A733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

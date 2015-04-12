@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "AccountInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  
+<div class="searchexpert" ng-controller="PatientInfo">
+    <div class="searchexpert_left"><span class="searchexpert_left_title">基本信息</span> </div>
+    <div class="searchexpert_center"></div>
+    <div class="searchexpert_right"></div>
+    <div class="clear"></div>
+    <div class="searchexpert_content">
+        <div class="nrframe2 mt_10">
+            <table class="pcb">
+                <tr>
+                    <th>病人姓名 ：</th>
+                    <td ng-bind="PatientInfo.UserName"></td>
+                    <th>出生年月：</th>
+                    <td ng-bind="PatientInfo.Birthday"></td>
+                </tr>
+                <tr>
+                    <th>性别：</th>
+                    <td ng-bind="PatientInfo.Gender"></td>
+                    <th>手机号：</th>
+                    <td ng-bind="PatientInfo.MobilPhoneNumber"></td>
+                </tr>
+                <tr>
+                    <th>身份证号：</th>
+                    <td ng-bind="PatientInfo.IdentityNumber"></td>
+                    <th>邮箱：</th>
+                    <td ng-bind="PatientInfo.Mailbox"></td>
+                </tr>
+                <tr>
+                    <th>省份：</th>
+                    <td ng-bind="PatientInfo.Province"></td>
+                    <th>城市：</th>
+                    <td ng-bind="PatientInfo.City"></td>
+                </tr>
+                <tr>
+                    <th>常住地址：</th>
+                    <td colspan="3" ng-bind="PatientInfo.Address"></td>
+
+                </tr>
+                    <tr>
+                    <th>医院名称：</th>
+                    <td ng-bind="PatientInfo.Hospital"></td>
+                    <th>主治医生：</th>
+                    <td ng-bind="PatientInfo.Doctor"></td>
+                </tr>
+                <tr>
+                    <th>吸烟史：</th>
+                    <td ng-bind="SmokingHisType"></td>
+                    <th>首次用药时间：</th>
+                    <td ng-bind="PatientInfo.FirstUseDate"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center">
+                        <!--  <input name="Search8" type="button" class="btnsave" value="提交修改" onclick="location.href = 'yycg.html'" />-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+ </div>
+             
+<script src="../Scripts/Views/NewPatient.js"></script>

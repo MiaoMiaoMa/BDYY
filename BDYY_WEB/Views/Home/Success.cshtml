@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_LayoutUnLogin.cshtml";
+}
+
+<div class="searchexpert">
+          <div class="searchexpert_left"> <span class="searchexpert_left_title">预约成功</span> </div>
+          <div class="searchexpert_center"></div>
+          <div class="searchexpert_right"> </div>
+          <div class="clear"> </div>
+          <div class="searchexpert_content">
+          
+           <table align="center" class="yytt">
+                <tr>
+                  <td class="yycg"><img src="../images/succeed_1.gif" /></td>
+                </tr>
+                <tr>
+                  <td class="yycg">预约成功！您的唯一码是<a style="color:#000">@ViewBag.IdentityNumber</a></td>
+                </tr>
+                <tr>
+                  <td class="yycga">您可以用此唯一码或身份证登录修改个人信息、查询审批状态、申请免费用药。<br />
+                    登录密码是 @ViewBag.pwd（您身份证的后6位）。您可以登录后修改这个密码。<br /></td>
+                </tr>
+              </table>
+          </div>
+        </div>

@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "ChangePWD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="searchexpert">
+          <div class="searchexpert_left"> <span class="searchexpert_left_title">修改密码</span> </div>
+          <div class="searchexpert_center"></div>
+          <div class="searchexpert_right"> </div>
+          <div class="clear"> </div>
+          <div class="searchexpert_content">
+        <div class="nrframe2 mt_20">
+     <table class="pcb">
+       <tr>
+         <th>输入原密码：</th>
+         <td><input type="text" name="textfield" id="textfield" class="input" id="oldpwd"/></td>
+       </tr>
+       <tr>
+         <th>输入新密码：</th>
+         <td><input type="text" name="textfield4" id="textfield4" class="input" id="newpwd" /></td>
+       </tr>
+       <tr>
+         <th>确认新密码：</th>
+         <td><input type="text" name="textfield2" id="textfield2" class="input" id="newpwd2" /></td>
+       </tr>
+       <tr>
+         <td colspan="2"  style="text-align:center">
+           <input name="Search" type="button"class="btnsave" value="确认" onclick="updatePWD();"/>
+         </td>
+         </tr>
+     </table>
+   </div>
+          </div>
+        </div>

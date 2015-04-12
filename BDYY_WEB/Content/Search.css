@@ -1,0 +1,171 @@
+.hotnews {
+	BORDER-BOTTOM: #d4d4d4 1px solid;
+	BORDER-LEFT: #d4d4d4 1px solid;
+	MARGIN: 0px 0px 5px;
+	HEIGHT: 33px;
+	FONT-SIZE: 16px;
+	BORDER-TOP: #d4d4d4 1px solid;
+	BORDER-RIGHT: #d4d4d4 1px solid
+}
+.searchexperta {
+	WIDTH:590px;
+	FLOAT: left;
+	HEIGHT:auto;
+	MARGIN-LEFT: 7px
+}
+.searchexpert {
+	WIDTH:795px;
+	FLOAT: left;
+	HEIGHT:auto;
+	MARGIN-LEFT: 7px
+}
+.searchexpert_left {
+	WIDTH: 173px;
+	BACKGROUND: url(../Images/search_expert_title.gif) no-repeat;
+	FLOAT: left;
+	HEIGHT: 31px
+}
+.searchexpert_left_title {
+	MARGIN: 8px 0px 0px 20px;
+	FLOAT: left;
+	HEIGHT: 23px;
+	COLOR: #ffffff;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold
+}
+.searchexpert_center {
+	WIDTH: 610px;
+	BACKGROUND: url(../Images/search_expert_bg.gif) repeat-x;
+	FLOAT: left;
+	HEIGHT: 31px
+}
+.searchexpert_centera {
+	WIDTH:413px;
+	BACKGROUND: url(../Images/search_expert_bg.gif) repeat-x;
+	FLOAT: left;
+	HEIGHT: 31px
+}
+.searchexpert_center_more {
+	MARGIN: 8px 0px 0px 0px;
+	FLOAT: left;
+	HEIGHT: 24px;
+	VERTICAL-ALIGN: middle
+}
+.searchexpert_center_more A {
+	COLOR: #ffffff;
+	FONT-WEIGHT: bold
+}
+.searchexpert_right {
+	WIDTH: 4px;
+	BACKGROUND: url(../Images/search_expert_right.gif) no-repeat;
+	FLOAT: left;
+	HEIGHT: 31px
+}
+.searchexpert_contenta {
+	BORDER-BOTTOM: #d4d4d4 1px solid;
+	BORDER-LEFT: #d4d4d4 1px solid;	
+	WIDTH:auto;	
+	HEIGHT:750px;
+	BORDER-RIGHT: #d4d4d4 1px solid;	
+	line-height:22px;
+	text-align:left;
+	padding:20px;
+}
+.searchexpert_content {
+	BORDER-BOTTOM: #d4d4d4 1px solid;
+	BORDER-LEFT: #d4d4d4 1px solid;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 5px;
+	WIDTH: 780px;
+	PADDING-RIGHT: 0px;
+	HEIGHT: 604px;
+	BORDER-RIGHT: #d4d4d4 1px solid;
+	PADDING-TOP: 5px
+}
+.searchexpert_contentyy {
+	BORDER-BOTTOM: #d4d4d4 1px solid;
+	BORDER-LEFT: #d4d4d4 1px solid;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 5px;
+	WIDTH: 780px;
+	PADDING-RIGHT: 0px;
+	HEIGHT:auto;
+	BORDER-RIGHT: #d4d4d4 1px solid;
+	PADDING-TOP: 5px
+}
+.searchexpert_content_hospital {
+	WIDTH: 700px
+}
+.searchexpert_content_deptl1 {
+	WIDTH: 700px
+}
+.searchexpert_content_keyword {
+	WIDTH: 700px
+}
+.searchexpert_content_title {
+	TEXT-ALIGN: center;
+	WIDTH: 115px;
+	BACKGROUND: url(../Images/Search/search_type_bg.gif) no-repeat;
+	FLOAT: left;
+	HEIGHT: 23px;
+	COLOR: #000000;
+	FONT-SIZE: 14px;
+	PADDING-TOP: 12px
+}
+.searchexpert_content_content {
+	WIDTH: 390px;
+	FLOAT: left;
+	BORDER-TOP: #cccccc 1px dashed;
+	PADDING-TOP: 7px
+}
+.searchexpert_content_content LI {
+	LINE-HEIGHT: 20px;
+	WIDTH: 195px;
+	WHITE-SPACE: nowrap;
+	FLOAT: left;
+	COLOR: #145f86;
+	FONT-SIZE: 14px;
+	CURSOR: pointer
+}
+.searchexpert_content_content_selected {
+	BACKGROUND-COLOR: #d9d9d9
+}
+#txtKeyword {
+	MARGIN: 0px 0px 0px 10px
+}
+#btnSearch {
+	MARGIN: 0px 0px 0px 10px
+}
+.searchexpert_content_faq LI {
+	MARGIN: 4px 0px 0px 16px;
+	FLOAT: left
+}
+.faq1 {
+	HEIGHT: 24px
+}
+.faq2 {
+	HEIGHT: 24px
+}
+.faq3 {
+	HEIGHT: 24px
+}
+.faq4 {
+	HEIGHT: 24px
+}
+.faq {
+	MARGIN-TOP: 8px;
+	FLOAT: left;
+	HEIGHT: 16px
+}
+.faq1 A {
+	COLOR: #2eb106
+}
+.faq2 A {
+	COLOR: #5ca1fc
+}
+.faq3 A {
+	COLOR: #f66709
+}
+.faq4 A {
+	COLOR: #f60941
+}

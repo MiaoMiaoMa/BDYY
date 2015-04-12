@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "ApplyAgain";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  <div class="searchexpert" ng-controller="ApplyForAgain">
+          <div class="searchexpert_left"> <span class="searchexpert_left_title">续领申请用药</span> </div>
+          <div class="searchexpert_center"></div>
+          <div class="searchexpert_right"> </div>
+          <div class="clear"> </div>
+          <div class="searchexpert_content">
+           <div class="nrframe2 mt_20">
+     <table class="pcb">
+       <tr>
+         <th>EMS号码：</th>
+         <td><input type="text" name="textfield3" id="textfield3" class="input" ng-model="EMSNumber"/>
+           <span class="center">
+           <input name="Search" type="button"class="btnsave" value="申请" ng-click="add()" />
+         </span></td>
+       </tr>
+     </table>
+   </div>
+          </div>
+        </div>
+<script src="~/Scripts/Views/newapply.js"></script>

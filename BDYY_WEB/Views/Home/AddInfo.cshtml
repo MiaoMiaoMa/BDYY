@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "AddInfo";
+    Layout = "~/Views/Shared/_LayoutUnLogin.cshtml";
+}
+
+ <div class="searchexpert" ng-app="mainApp" ng-controller ="AddPatientBasicInfo">
+                        <div class="searchexpert_left"><span class="searchexpert_left_title">预约登记</span> </div>
+                        <div class="searchexpert_center"></div>
+                        <div class="searchexpert_right"></div>
+                        <div class="clear"></div>
+                        <div class="searchexpert_contentyy">
+                            <div class="nrframe2 mt_10">
+                                <form name="userForm" ng-submit="Submit()" > 
+                                <table class="pcb ">
+                                    <tr>
+                                        <th>病人姓名 ：</th>
+                                        <td>
+                                            <input type="text" name="UserName" id="textfield" class="input" ng-model="PatientInfo.UserName" required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+
+                                        <td class="sm">说明：病人姓名必须填写</td>
+                                    </tr>
+                                    <tr>
+                                        <th>出生年月：</th>
+                                        <td>
+                                            <input type="text" name="textfield2" id="textfield2" class="input" ng-model="PatientInfo.Birthday" datepickers required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>性别：</th>
+                                        <td>
+                                            <input type="radio" name="radio" id="radio" value="男" class="radio_box" ng-checked="true" ng-model="PatientInfo.Gender" />男 
+                                            <input type="radio" name="radio" id="radio2" value="女" class="radio_box" ng-model="PatientInfo.Gender" /> 女 
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>手机号：</th>
+                                        <td>
+                                            <input type="text" name="textfield10" id="textfield10" class="input" ng-model="PatientInfo.MobilPhoneNumber" required/>
+                                            <span style="text-align: center">
+                                                <input name="Search" type="button" class="btnsave" value="获取验证码" />
+                                            </span></td>
+                                        <td>&nbsp;</td>
+                                    </tr>                                    
+                                    <tr>
+                                        <th>手机验证码：</th>
+                                        <td>
+                                            <input type="text" name="textfield10" id="text1" class="input" /><strong><span style="color: #F00">*</span></strong>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>备用联系电话：</th>
+                                        <td>
+                                            <input type="text" name="textfield10" id="text3" class="input" ng-mode="PatientInfo.EmgPhoneNumber" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>证件类型：</th>
+                                        <td>
+                                            <select name="CredentialType" id="CredentialType" ng-mode="PatientInfo.IdentityType" >
+                                                <option value="1">身份证</option>
+                                                <option value="2">军人证</option>
+                                                <!--  <option value="3">护照</option>-->
+                                                <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>身份证号码：</th>
+                                        <td>
+                                            <input name="textfield3" type="text" class="input" id="textfield3" size="30" ng-model="PatientInfo.IdentityNumber" required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>确认身份证号码：</th>
+                                        <td>
+                                            <input id="indetityNumber2" type="text" class="input" size="30" required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>邮箱：</th>
+                                        <td>
+                                            <input type="email" name="textfield5" id="textfield5" class="input" ng-model="PatientInfo.Mailbox"/></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>省份：</th>
+                                        <td>
+                                            <select size="1" name="D2" ng-model="PatientInfo.Province" required>
+                                                <option>请选择省市</option>
+                                            </select>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>城市：</th>
+                                        <td>
+                                            <select size="1" name="D" ng-model="PatientInfo.City" required>
+                                                <option>请选择省市</option>
+                                            </select>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>常住地址：</th>
+                                        <td>
+                                            <input name="textfield4" type="text" class="input" id="textfield4" size="60" ng-model="PatientInfo.Address"  required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>医院名称：</th>
+                                        <td>
+                                            <input name="textfield7" type="text" class="input" id="textfield7" size="40" ng-model="PatientInfo.Hospital" /></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>主治医生：</th>
+                                        <td>
+                                            <input type="text" name="textfield8" id="textfield8" class="input" ng-model="PatientInfo.Doctor" required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <tr>
+                                            <th>病例分型：</th>
+                                            <td>
+                                                <select size="1" name="D4" ng-model="PatientInfo.PathologyType" required>
+                                                    <option>鳞癌</option>
+                                                    <option>腺癌</option>
+                                                    <option>腺鳞癌</option>
+                                                    <option>大细胞癌</option>
+                                                    <option>其它</option>
+                                                </select>
+                                                <strong><span style="color: #F00">*</span></strong></td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <th>首次用药时间：</th>
+                                        <td colspan="3">
+                                            <input type="text" name="textfield6" id="textfield6" class="input" ng-model="PatientInfo.FirstUseDate" datepickers required/>
+                                            <strong><span style="color: #F00">*</span></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th>吸烟史：</th>
+                                        <td colspan="3">
+                                            <input type="radio" name="Smorking" id="radio6" value="1" ng-checked="true" class="radio_box " ng-model="PatientInfo.SmokingHisType"/>
+                                            1、不吸烟<br />
+                                            <input type="radio" name="Smorking" id="radio7" value="2" class="radio_box " ng-model="PatientInfo.SmokingHisType" />
+                                            2、吸烟
+                                            <input id="smoking2" type="number" class="input" id="textfield9" size="8" />
+                                            年<br />
+                                            <input type="radio" name="Smorking" id="radio8" value="3" class="radio_box " ng-model="PatientInfo.SmokingHisType"/>
+                                            3、已戒除
+                                            <input id="smoking3" type="number" class="input" id="textfield11" size="8" />
+                                            年</td>
+                                    </tr>
+                                    <tr>
+                                        <th>告知书：</th>
+                                        <td colspan="3">
+                                            <textarea name="textarea" id="textarea" cols="60" rows="5">您已确认读过告知书您已确认读过告知书您已确认读过告知书您已确认读过告知书，您已确认读过告知书您已确认读过告知书您已确认读过告知书您已确认读过告知书您已确认读过告知书您已确认读过告知书您已确认读过告知书</textarea>
+                                            <br />
+                                            <input type="checkbox" name="checkbox" id="gzs" />
+                                            您已确认读过告知书</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="text-align: center">
+                                            <input name="Search8" type="submit" class="btnsave" value="预约"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+
+<script src="~/Scripts/Views/NewPatient.js"></script>

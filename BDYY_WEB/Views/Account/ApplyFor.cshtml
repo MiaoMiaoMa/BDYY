@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "ApplyFor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="searchexpert" ng-controller="ApllyFor">
+          <div class="searchexpert_left"> <span class="searchexpert_left_title">首次申请用药</span> </div>
+          <div class="searchexpert_center"></div>
+          <div class="searchexpert_right"> </div>
+          <div class="clear"> </div>
+          <div class="searchexpert_content">
+           <div class="nrframe2 mt_10">
+     <table class="pcb">
+       <tr>
+         <th>KPS评分 ：</th>
+         <td><input type="text" name="textfield" id="textfield" class="input" ng-model="PatientOtherInfo.KPSScore"/></td>
+         <th>肿瘤分期：</th>
+         <td><select size="1" name="D6" ng-model="PatientOtherInfo.Tumortage">
+           <option value="1">IIIB期</option>
+           <option value="2">T2N0M1</option>
+           <option value="3">T1bN3M1b</option>
+           <option value="4">IIIB期</option>
+         </select></td>
+       </tr>
+       <tr>
+         <th>基因检测：</th>
+         <td ><select size="1" name="D7" ng-model="PatientOtherInfo.IsGeneDetect">
+           <option value="1">基因检测</option>
+         </select></td>
+         <th>需答复时间：</th>
+         <td ><input type="text" name="textfield2" id="textfield2" class="input" datepickers  ng-model="PatientOtherInfo.RequiredReplyDate" /></td>
+       </tr>
+       <tr>
+         <th>EMS号码：</th>
+         <td><input type="text" name="textfield3" id="textfield3" class="input" ng-model="PatientOtherInfo.EMSNumber" /></td>
+         <th>销售员姓名：</th>
+         <td><input type="text" name="textfield5" id="textfield5" class="input" ng-model="PatientOtherInfo.SellerName" /></td>
+       </tr>
+       <tr>
+         <th>疾病诊断：</th>
+         <td><select size="1" name="D" ng-model="PatientOtherInfo.IsDiseaseDiagnosis" >
+           <option value="1">是</option>
+           <option value="0">否</option>
+         </select></td>
+         <th>是否满5个月申请：</th>
+         <td><select size="1" name="D"  ng-model="PatientOtherInfo.IsAccordFiveMouth">
+           <option value="1">是</option>
+           <option value="0">否</option>
+         </select></td>
+       </tr>
+       <tr>
+         <th>预计领药时间<br />（指不领药就会断药的日期）：</th>
+         <td><input type="text" name="textfield11" id="textfield11" class="input" datepickers ng-model="PatientOtherInfo.ExpectedLeadDate"/></td>
+         <th>  </th>
+         <td>  </td>
+       </tr>
+        <td colspan="4" style="text-align:center">
+           <input id="submit" type="button" class="btnsave" value="提交申请" ng-click="save()" /></td>
+     </table>
+                   
+   </div>
+          </div>
+        </div>
+
+<script src="~/Scripts/Views/newapply.js"></script>

@@ -105,12 +105,15 @@ BODY {
 .usermenu_password INPUT {
 	WIDTH: 100px
 }
+/*
 .usermenu_verify {
 	TEXT-ALIGN: center; MARGIN: 5px 0px 0px 20px; WIDTH: 150px; HEIGHT: 22px
 }
 .usermenu_verify IMG {
 	WIDTH: 90px; HEIGHT: 20px; VERTICAL-ALIGN: bottom
 }
+*/
+
 .usermenu_answer {
 	MARGIN: 15px 0px 0px 20px; WIDTH: 150px; HEIGHT: 22px
 }

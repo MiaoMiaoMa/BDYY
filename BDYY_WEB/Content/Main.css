@@ -121,8 +121,11 @@ SELECT {
 }
 .necessary {
 	BORDER: #999 1px solid;
-	height: 25px;
+	height: 22px;
 	line-height: 25px;
+    border: 1px solid #97d1fd;
+    background: #e3f3ff;
+    
 }
 .unnecessary {
 	BORDER-BOTTOM: #cccccc 1px solid;
@@ -1128,24 +1131,24 @@ BODY {
 .usermenu_username {
 	TEXT-ALIGN: center;
 	PADDING-BOTTOM: 0px;
-	PADDING-LEFT: 20px;
-	WIDTH: 150px;
+	PADDING-LEFT: 8px;
+	
 	PADDING-RIGHT: 0px;
 	HEIGHT: 22px;
 	PADDING-TOP: 18px
 }
 .usermenu_username INPUT {
-	WIDTH: 100px
+	WIDTH: 125px
 }
 .usermenu_password {
 	TEXT-ALIGN: center;
-	MARGIN: 15px 0px 0px 20px;
-	WIDTH: 150px;
+	MARGIN: 15px 0px 0px 8px;
 	HEIGHT: 25px
 }
 .usermenu_password INPUT {
-	WIDTH: 100px
+	WIDTH: 125px
 }
+/*
 .usermenu_verify {
 	TEXT-ALIGN: center;
 	MARGIN: 5px 0px 0px 20px;
@@ -1156,7 +1159,8 @@ BODY {
 	WIDTH: 90px;
 	HEIGHT: 20px;
 	VERTICAL-ALIGN: bottom
-}
+}*/
+
 .usermenu_answer {
 	MARGIN: 15px 0px 0px 20px;
 	WIDTH: 150px;
@@ -1496,7 +1500,7 @@ padding:20px;
 
 .txt_ver_code {
     margin-top: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     width: 80px;
     height: 25px;
     border: 1px solid #b7b7b7;

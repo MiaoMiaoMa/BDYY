@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "ServiceManage";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="mainbox">
+        <div class="clearfix">
+            <!--导航-->
+            <div class="yarnlet">>> 基本信息</div>
+            <!--操作按钮-->
+            <!--end-->
+            <!--nr-->
+            <div class="nrframe mt_10 mr_10">
+                <div class="search_bg">
+                    <table class="search" width="100%">
+                        <tr>
+                            <td>检索：                               
+                                <select size="1" name="D7">
+                                    <option value="1">唯一码</option>
+                                    <option value="2">身份证号</option>
+                                    <option value="3">主治医生</option>
+                                    <option value="4">患者姓名</option>
+                                    <option value="6">满足4个月</option>
+                                    <option value="7">满足5个月</option>
+                                    <option value="8">满足6个月</option>
+                                </select>
+                                <select size="1" name="D77">
+                                    <option value="1">待审核</option>
+                                    <option value="2">未通过</option>
+                                    <option value="3">审核通过</option>
+
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="T1" />
+                            </td>
+                            <td class="btn_search"><a href="#">查询</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--列表-->
+                <div class="gridiframe">
+                    <table class="gridcontent">
+                        <tr>
+                            <td class=" bg_thead">编号</td>
+                            <td class="bg_thead">患者姓名</td>
+                            <td class="bg_thead">性别</td>
+                            <td class=" bg_thead">年龄</td>
+                            <td class=" bg_thead">手机号</td>
+                            <!-- <td class=" bg_thead">身份证号</td>-->
+                            <td class=" bg_thead">邮箱</td>
+                            <td class="bg_thead">首次用药时间</td>
+                            <td class="bg_thead">省份</td>
+                            <td class="bg_thead">城市</td>
+                            <td class="bg_thead">详细</td>
+                        </tr>
+                        <tr class="border_t_n">
+                            <td>001</td>
+                            <td>刘广成</td>
+                            <td>男</td>
+                            <td>65</td>
+                            <td>13876473642</td>
+                            <!--  <td>310425193709042411</td>-->
+                            <td>test@eltest.com</td>
+                            <td>1937-9-4</td>
+                            <td>上海市            
+            <td>上海            
+            <td>
+                <input name="Search2" type="button" class="bt_add" value="查看" />
+                <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>吴梦婷</td>
+                            <td>女</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <!-- <td>310425198009042411</td>-->
+                            <td>test@eltest.com</td>
+                            <td>1937-9-4</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>李向涛</td>
+                            <td>男</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <!--  <td>310425198009042411</td>-->
+                            <td>test@eltest.com</td>
+                            <td>1937-9-4</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>刘向阳</td>
+                            <td>男</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <!--  <td>310425198009042411</td>-->
+                            <td>test@eltest.com</td>
+                            <td>1937-9-4</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--nr end-->
+        </div>
+        <!--end-->
+    </div>

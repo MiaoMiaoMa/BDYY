@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>贝达药业业务管理系统-登录</title>
+    <link href="../content/css_admin.css" rel="stylesheet" type="text/css" id="indexSkin" />
+        @Scripts.Render("~/Scripts/jquery-1.8.2.min.js")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/Views/tools.js")
+    @Scripts.Render("~/Scripts/default.js")
+
+    <script src="~/Scripts/Views/login.js"></script>
+</head>
+<body>
+<!--<div class="head"></div>-->
+<div class="mainboxb">
+<div class="mainboxa">
+  <div class="lgright" >   
+    <div style="margin-left:25px">用户登录： </div>
+      <div>
+        <input type="text" class="txt_login" value="test1" id="uid" onfocus="this.style.color='black';if(this.value=='用户名'){this.value=''}" onblur="if(this.value==''){this.value='用户名'};this.style.color='#666'" />
+      </div>
+      <div>
+        <input type="password" class="txt_login" value="888888Aa" id="pwd" onfocus="this.style.color='black';if(this.value=='111111'){this.value=''}" onblur="if(this.value==''){this.value='111111'};this.style.color='#666'" />
+      </div>
+      <div>
+        <input type="text" class="txt_ver_code" id="valcode" value="请输入验证码" onfocus="this.style.color='black';if(this.value=='请输入验证码'){this.value=''}" onblur="if(this.value==''){this.value='请输入验证码'};this.style.color='#666'" />
+        <span style="color:#b1bed5; border:1px solid #b1bed5; padding:2px 5px; margin:auto 10px" id="vcode">d2w5</span><a class="bt_change" href="#" onclick="getValidationCode()">换一张</a> </div>
+      <input type="button" class="btnsave ml_25 mt_20 mb_10" onclick="login('admin')" value="登 录" /> 
+      <input type="button" class="btnup ml_25 mt_20 mb_10" onclick=" javascript: window.location.href = '../Home/AddInfo'" value="用药预约" /> 
+    <br />
+     <span class="ml_25"><a href="#">密码修改</a></span>
+    </div>
+  </div>  </div>
+</body>
+</html>
+

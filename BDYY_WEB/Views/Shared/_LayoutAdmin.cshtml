@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+
+    <title>@ViewBag.Title</title>
+    
+    @Styles.Render("~/Content/css_admin.css")
+    @Styles.Render("~/Content/common_admin.css")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.min.js")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/Views/tools.js")
+    @Scripts.Render("~/Scripts/default.js")
+    
+    <link href="~/Content/jquery-ui.css") rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script src="~/Scripts/jquery-ui-datepicker.js"></script>
+</head>
+<body>
+ <div class="mainhead">
+        <div class="float_r color_f mt_5">
+            <span class="user mr_5"></span><a class="color_f ml_5 mr_10" href="#">@User.Identity.Name</a>| <a href="../Admin/Logout"><span class="loginout ml_5 mr_5"></span></a>
+            <div class="mr_10" style="margin-top: 20px; text-align: right"><a class="color_f ml_5 Screen" href="#"><span class="fullscreen ml_10"></span></a></div>
+        </div>
+        <div class="logo"></div>
+        <div class="nav1 pl_20 clearfix" style="margin-left: 300px; position: absolute; bottom: 0px;">
+            <ul class="clear">
+
+
+                <a href="default.html">
+                    <li class="float_l navnoselect" style="border-left: 1px solid #47a8e1;"><span class="nav_monitor mt_20"></span>
+                        <br />
+                        工作台</li>
+                </a>
+
+
+                <li class="float_l navselect"><span class="nav_track mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">患者预约登记</a>
+                                <ul>
+                                    <li><a href="../Admin/AppointmentApprove">患者预约审核</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="float_l navnoselect"><span class="nav_analysis mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">赠药审批管理</a>
+                                <ul>
+                                   <li><a href="../Admin/ApproveManage">审批管理</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="float_l navnoselect"><span class="nav_visit mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">续领申请</a>
+                                <ul>
+                                    <li><a href="AppointmentQueryList">续领申请查询</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="float_l navnoselect"><span class="nav_web mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">客服管理</a>
+                                <ul>
+                                    <li><a href="../Admin/ServiceManage">客服管理</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="float_l navnoselect"><span class="nav_log mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">智能统计分析</a>
+                                <ul>
+                                    <li><a href="#">地区数据统计</a></li>
+                                    <li><a href="#">医院数据统计</a></li>
+                                    <li><a href="#">医生数据统计</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="float_l navnoselect"><span class="nav_setting mt_20"></span>
+                    <br />
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">后台系统管理</a>
+                                <ul>
+                                   <!-- <li><a href="#.html">续领申请</a></li>
+                                    <li><a href="#.html">续领申请</a></li>-->
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="logo"></div>
+    </div>
+ <div class="minhead" style="display: none">
+        <div class="float_r color_0 mt_5">
+            <div class="mr_10" style="text-align: right"><a class="color_f mr_10" href="#"></a><a class="color_f ml_5 Screen" href="#"><span class="fullscreen2 ml_10"></span></a></div>
+        </div>
+        <div class="float_l mt_5 center color_f" style="width: 150px; text-align: center;"><b>贝达药业业务管理系统</b></div>
+        <div class="nav1 pl_20 clearfix" style="margin-left: 150px;">
+            <ul>
+                <li class="float_l navselect" style="height: 30px;"></li>
+                <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">工作台</a>
+                                <ul>
+                                    <!-- <li><a href="txl.html">个人信息</a></li>-->
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li>
+                                <a href="#">预约登记管理</a>
+                                <ul>
+                                    <li><a href="#.html">患者预约审核</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">赠药审批管理</a>
+                                <ul>
+                                    <li><a href="#.html">审批管理</a></li>
+                     
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">续领申请</a>
+                                <ul>
+                                    <li><a href="#.html">续领申请查询</a></li>
+                     
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">客服管理</a>
+                                <ul>
+                                    <li><a href="#.html">客服管理</a></li>
+                               
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">智能统计分析</a>
+                                <ul>
+                                    <li><a href="#.html">地区数据统计</a></li>
+                                    <li><a href="#.html">医院数据统计</a></li>
+                                    <li><a href="#.html">医生数据统计</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 <li class="float_l navnoselect" style="height: 30px;">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">后台系统管理</a>
+                                <ul>
+                                     <!-- <li><a href="#.html">续领申请</a></li>
+                                    <li><a href="#.html">续领申请</a></li>-->
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--
+                <a href="#">
+                    <li class="float_l navnoselect" style="height: 30px;">申请状态 </li>
+                </a>
+                -->
+            </ul>
+        </div>
+
+        </li>
+    </ul>
+    </div>
+   
+     @RenderBody()
+
+<!--end-->
+<div class="mainfoot"><span class="ml_20 mr_20 float_r">系统版本：2.0.1.0524 检查更新</span></div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

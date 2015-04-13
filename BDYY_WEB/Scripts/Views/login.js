@@ -9,7 +9,7 @@
     $("#valcode").val(t);
 })
 
-function login() {
+function login(logintype) {
     var uid = $("#uid").val();
     var pwd = $("#pwd").val();
     var vcodeInput = $("#valcode").val();
@@ -25,9 +25,16 @@ function login() {
     }
     else {
         var dataObj = { uid: $("#uid").val(), pwd: $("#pwd").val() }
-        callAJAX('../Home/LoginValidate', dataObj, 'JSON', function (data) {
+        var url = '../Home/LoginValidate';
+        var successurl = '../Account/AccountInfo';
+        if (typeof logintype != "undefined" && logintype == "admin")
+        {
+            url = '../Admin/AdminLoginValidate';
+            successurl = '../Admin/Default';
+        }
+        callAJAX(url, dataObj, 'JSON', function (data) {
             if (data.IsSuccess) {
-                window.location.href = '../Account/AccountInfo';
+                window.location.href = successurl;
             }
             else {
                 alert("账户名或密码错误！");

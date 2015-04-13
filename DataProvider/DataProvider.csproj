@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminProvider.cs" />
     <Compile Include="ApplyProvider.cs" />
     <Compile Include="ProviderBase.cs" />
     <Compile Include="SQLHelper.cs" />

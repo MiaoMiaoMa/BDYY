@@ -1,0 +1,483 @@
+﻿html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+/*弹出窗口*/
+.pop_up_Iframe {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: none;
+	_display: none;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0; /* Mozilla */
+	-khtml-opacity: 0; /* Safari */
+	opacity: 0;    /*火狐下透明度*/
+}
+.bg {
+	background-color: Gray;
+	left: 0px;
+	opacity: 0.5;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	z-index: 3;
+	filter: alpha(opacity=50); /* IE6 */
+	-moz-opacity: 0.5; /* Mozilla */
+	-khtml-opacity: 0.5; /* Safari */
+	opacity: 0.8;    /*火狐下透明度*/
+}
+.pop_up_box {
+	display: none;
+	min-height: 200px;
+	padding: 1px;
+	z-index: 5;
+	left: 30%;
+	top: 50%;
+	position: fixed!important;/* FF IE7*/
+	position: absolute;/*IE6*/
+}
+.pop_up_contnet {
+	z-index: 1002;
+	width: 100%;
+	overflow: hidden;/*height:1%;*/
+}
+.pop_up_contnet_top {
+	width: 100%;
+}
+.edialogheaderbg_l {
+	background: url(../images/pic/dialogbg.png) left top no-repeat;
+	height: 47px;
+	padding-left: 20px;
+}
+.edialogheaderbg_r {
+	background: url(../images/pic/dialogbg.png) right -120px no-repeat;
+	height: 47px;
+	padding-right: 20px;
+}
+.edialogheadertitle {
+	background: url(../images/pic/dialogbg.png) right -60px repeat-x;
+	height:47px;
+	line-height:47px;
+	padding-top:7px;
+	color: #fff;
+	padding-right: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.edialogclose {
+	background: url(../images/pic/icon_small.png) -80px 0px no-repeat;
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 12px;
+	width: 29px;
+	height: 29px;
+}
+.edialogclose:hover {
+	background: url(../images/pic/icon_small.png) -120px 0px no-repeat;
+}
+.Guide_content {
+	color: #362B36;/*height:1%;*/
+}
+.edialogbodybg_l {
+	background: url(../images/pic/dialogbg_c.png) left top repeat-y;
+	padding-left: 10px;
+}
+.edialogbodybg_r {
+	background: url(../images/pic/dialogbg_c.png) right top repeat-y;
+	padding-right: 10px;
+}
+.edialogbody {
+	background: #ebebeb;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.edialogfooterbg_l {
+	height: 20px;
+	background: url(../images/pic/dialogbg.png) left -220px no-repeat;
+	padding-left: 20px;
+}
+.edialogfooterbg_r {
+	height: 20px;
+	background: url(../images/pic/dialogbg.png) no-repeat right -340px;
+	padding-right: 20px;
+}
+.edialogfooterbg {
+	height: 20px;
+	background: url(../images/pic/dialogbg.png) repeat-x left -280px;
+}
+
+/*状态*/
+.ok {
+	color:#fff;
+	background:url(../images/pic/icon_small.png) 0px -205px no-repeat;
+	width:20px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.problem {
+	color:#fff;
+	background:url(../images/pic/icon_small.png) -20px -205px no-repeat;
+	width:20px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.serious {
+	color:#fff;
+	background:url(../images/pic/icon_small.png) -40px -205px no-repeat;
+	width:20px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.yellow {
+	background:url(../images/pic/icon_small.png) 0px -140px no-repeat;
+	width:61px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.orange {
+	background:url(../images/pic/icon_small.png) 0px -120px no-repeat;
+	width:61px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.blue {
+	background:url(../images/pic/icon_small.png) 0px -100px no-repeat;
+	width:61px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.red {
+	background:url(../images/pic/icon_small.png) 0px -160px no-repeat;
+	width:61px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+.green {
+	background:url(../images/pic/icon_small.png) 0px -180px no-repeat;
+	width:61px;
+	height:20px;
+	display:inline-block;
+	cursor:default;
+}
+
+.tabletc {
+	margin: 0px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	padding: 10px;
+	font-family: "微软雅黑";
+}
+.tabletc td {
+	line-height: 25px;
+	border-bottom: 1px #f5f5f5 solid;
+	background-color: #efefef;
+}
+.tabletc th {
+	font-weight: bold;
+	text-align: right;
+	background-color: #e3e3e3;
+	border-bottom: 1px #f5f5f5 solid;
+	padding: 5px;
+	color: #424242;
+}
+.table6 {
+	width:auto;
+	height:30px;
+	border: 1px solid #d2d2d2;
+}
+.table6 th {
+	color: #5d5d5d;
+	font-size:14px;
+	text-align:right;
+	padding-left:10px;
+	padding-right:10px;
+
+}
+.table6 td {
+	font-size: 14px;
+	color:#9D9D9D;
+	text-align: center;
+	padding-left:10px;
+	padding-right:10px;
+}
+.gs {
+	width: auto;
+	height: auto;
+}
+.gstitle {
+	width: auto;
+	height: auto;
+	background-color: #ffa200;
+	font-size: 12px;
+	color: #FFF;
+	margin: 5px;
+	padding: 2px;
+}
+.gstitle:hover {
+	background-color: #ffb534;
+	cursor: pointer;
+}
+.jszn {
+	font-size: 16px;
+	color: #069;
+	font-weight: bold;
+	line-height: 35px;
+}
+.job-list {
+	width: auto;
+	height: auto;
+}
+.job-list a {
+	color: #000;
+}
+.clearfix {
+	width: auto;
+}
+.company {
+	float: left;
+	width:280px;
+	margin-left: 8px;
+}
+.company2 {
+	float: left;
+	width:auto;
+	padding-right:30px;
+	margin-left: 8px;
+}
+.city {
+	float: left;
+	width: 140px;
+}
+.timestamp {
+	float: left;
+	padding-right: 10px;
+}
+.inte {
+	height: 30px;
+	line-height: 25px;
+	margin-left: 8px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #06C;
+}
+.inte:hover {
+	color: #F63;
+}
+.elite {
+	background-color: #fef9ee;
+	border-bottom: 1px #b9b9b9 dotted;
+	list-style: none;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+.elite:hover {
+	background-color: #f8f8f8;
+	cursor: pointer;
+}
+.gz {
+	float:right;
+	padding-right:10px;
+}
+.salary {
+	float:right;
+	padding-right:5px;
+}
+.lmcolor {
+	color: #999999
+}
+.bt_gz {
+	background: #47be42;
+	padding: 0px 8px 3px;
+	color: #fff;
+	border: none;
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+}
+.bt_gz:hover {
+	background: #6de367;
+	text-decoration: none;
+	cursor: pointer;
+}
+.jlxx {
+	font-size: 16px;
+	font-weight: bold;
+}
+.hr_jl {
+	width: 118px;
+	height:60px;
+	background-color: #e1e1e1;
+	text-align: center;
+	padding-top:20px;
+	font-size: 15px;
+	font-weight: bold;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+	line-height:25px;
+	color:#999;
+}
+.hr_jl:hover {
+	background-color:#F3F3F3;
+	cursor: pointer;
+}
+.hr_gz {
+	width: 118px;
+	height:60px;
+	background-color: #e1e1e1;
+	text-align: center;
+	padding-top:20px;
+	font-size: 15px;
+	font-weight: bold;
+	float:left;
+	
+	margin-bottom:10px;
+	line-height:25px;
+	color:#999;
+}
+.hr_gz:hover {
+	background-color:#F3F3F3;
+	cursor: pointer;
+}
+.jlsz{
+	font-size:20px;
+	color:#F90;
+}
+.jlheight {
+	height:250px;
+	width: auto;
+}
+.zpgz{
+	width:auto;
+	padding:10;
+	height:60px;
+	background-color:#0C3;
+	font-size:25px;
+	color:#fff;
+	text-align:center;
+	line-height:60px;
+	margin-bottom:20px;
+}
+.shjl{width:90%;
+	margin:10px;
+
+}
+.shjl th{
+	font-size:15px;
+	color:#5d5d5d;
+	text-align:left;
+	padding:8px;
+}
+
+.shjl tr{
+	border: 1px #999999 solid;
+	padding:5px;
+}
+
+.nav {
+	height: 30px;
+	margin: auto;
+	font-family:"微软雅黑";
+	font-size:13px;
+}
+.nav ul li {
+	width: 98px;
+	height: 30px;
+	float: left;
+	position: relative;
+	font-weight:100
+}
+ 
+ /*设置一级导航样式*/
+.nav ul li ul {
+	display: none;
+}
+.nav ul li:hover ul {
+	display: block;
+	width: 98px;
+	position: absolute;
+	top:29px;
+	left: 0;
+	background-color:#47a8e1
+}
+.nav ul li:hover ul li a {
+	display: block;
+	width: 98px;
+	height: 30px;
+	line-height: 30px;
+	border-bottom:1px #CCCCCC solid;
+	text-align: center;
+	font-size:13px;
+	font-family:"微软雅黑"
+}
+.nav ul li:hover ul li a:hover {
+	background-color: orange;
+}  
+/*设置三级导航样式*/
+.nav ul li:hover ul li ul {
+	display: none;
+}
+.nav ul li:hover ul li:hover ul {
+	display: block;
+	width: 100px;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	background-color: #b4b4b4;
+}
+.nav ul li:hover ul li:hover ul li {
+	width: 100px;
+	height: 30px;
+}
+.nav ul li:hover ul li:hover ul li a {
+	display: block;
+	width: 96px;
+	height: 26px;
+	line-height: 26px;
+	border: 2px solid gray;
+	text-align: center;
+}
+.nav ul li:hover ul li:hover ul li a:hover {
+	background-color: #00CC00;
+}
+.nav ul li:hover ul .nav_jw ul {
+	display: none;
+}
+.nav ul li:hover ul .nav_jw:hover ul {
+	display: block;
+	width: 100px;
+	position: absolute;
+	top: 0px;
+	left: -100px;
+	background-color: #b4b4b4;
+}
+.nav ul li:hover ul .nav_jw:hover ul li {
+	width: 100px;
+	height: 30px;
+}
+.nav ul li:hover ul .nav_jw:hover ul li a {
+	display: block;
+	width: 96px;
+	height: 26px;
+	line-height: 26px;
+	border: 2px solid gray;
+	text-align: center;
+}
+.nav ul li:hover ul .nav_jw:hover ul li a:hover {
+	background-color: #00CC00;
+}

@@ -91,9 +91,11 @@ ul li {
 	color: #666;
 	line-height: 30px;
 }
+
+/*  !!!!!!!!!!!!!!!  No use*/  
 .txt_ver_code {
 	margin-top: 10px;
-	margin-left: 25px;
+	margin-left: 15px;
 	width: 100px;
 	height: 35px;
 	border: 1px solid #b7b7b7;
@@ -102,6 +104,8 @@ ul li {
 	color: #666;
 	line-height: 30px;
 }
+/*  !!!!!!!!!!!!!!!  No use*/  
+
 .bt_change {
 	color: #5bb6e4;
 }

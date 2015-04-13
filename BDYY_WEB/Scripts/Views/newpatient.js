@@ -4,7 +4,7 @@ function AddPatientBasicInfo($scope, $window)
 {
     callAJAX('../Home/GetPatientInfoEmptyModel', null, 'JSON', function (data) {
         if (data) {
-            $scope.PatientInfo = data.PatientInfo;
+            $scope.PatientInfo = data.patient;
             //$scope.IdentityType = data.identityType;
             //$scope.Province = data.province;
             //$scope.Hospital = data.hospital;
@@ -13,7 +13,7 @@ function AddPatientBasicInfo($scope, $window)
 
     $scope.Submit = function () {
         patientData = angular.copy($scope.PatientInfo);
-        if (!isCardNo(patientData.IdentityNumber)) {
+        if (patientData.IdentityType == "1" && !isCardNo(patientData.IdentityNumber)) {
             return;
         }
         if ($("#indetityNumber2").val() != patientData.IdentityNumber) {
@@ -37,18 +37,19 @@ function AddPatientBasicInfo($scope, $window)
         }
 
         patientData = { data: JSON.stringify(patientData) };
+
+        //防止多次提交
+        $("#savebutton").hidden();
         
         callPostAJAX('../Home/AddPatientInfo', patientData, 'JSON', function (data) {
             var result = angular.fromJson(data);
             if (result.IsSuccess) {
-                $window.location.href = '../Home/Success?IdentityNumber=' + result.IdentityNumber;
+                $window.location.href = '../Home/Success';
             }
             else if(result.errormsg != "") {
                 alert(result.errormsg);
             }
-        }, null);
-        
-        
+        }, null);  
     }
 }
 

@@ -54,14 +54,14 @@
                                     <tr>
                                         <th>备用联系电话：</th>
                                         <td>
-                                            <input type="text" name="textfield10" id="text3" class="input" ng-mode="PatientInfo.EmgPhoneNumber" />
+                                            <input type="text" name="textfield10" id="text3" class="input" ng-model="PatientInfo.EmgPhoneNumber" />
                                         </td>
                                         <td>&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <th>证件类型：</th>
                                         <td>
-                                            <select name="CredentialType" id="CredentialType" ng-mode="PatientInfo.IdentityType" >
+                                            <select name="CredentialType" id="CredentialType" ng-model="PatientInfo.IdentityType" >
                                                 <option value="1">身份证</option>
                                                 <option value="2">军人证</option>
                                                 <!--  <option value="3">护照</option>-->
@@ -172,7 +172,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="4" style="text-align: center">
-                                            <input name="Search8" type="submit" class="btnsave" value="预约"/>
+                                            <input name="Search8" type="submit" class="btnsave" id="savebutton" value="预约"/>
                                         </td>
                                     </tr>
                                 </table>

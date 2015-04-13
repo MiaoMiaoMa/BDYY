@@ -55,6 +55,7 @@ namespace DataProvider
                 }
                 else
                 {
+                    reader.Close();
                     return true;
                 }
             }

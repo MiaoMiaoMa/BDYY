@@ -26,7 +26,7 @@ namespace BDYY_WEB.Models
         public string Doctor { get; set; }
         public string City { get; set; }
         public string SmokingHisType { get; set; }
-        public string SmokingHis { get; set; }
+        public int SmokingHis { get; set; }
         public string PathologyType { get; set; }
         public bool Isverify { get; set; }
         public string FirstUseDate { get; set; }

@@ -71,6 +71,8 @@ namespace BDYY_WEB.Controllers
             UsersModel patient = new UsersModel();
             patient.IdentityType = "1";
             patient.Gender = "男";
+            patient.Hospital = "杭州师范大学附属医院";
+            patient.PathologyType = "鳞癌";
             
             var data = new
             {

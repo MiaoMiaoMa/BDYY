@@ -28,6 +28,7 @@ function AddPatientBasicInfo($scope, $window)
             return;
         }
         //获取吸烟年限
+        
         if (patientData.SmokingHisType == '2')
         {
            patientData.SmokingHis = $("#smoking2").val();            
@@ -35,11 +36,11 @@ function AddPatientBasicInfo($scope, $window)
         else if (patientData.SmokingHisType == '3') {
             patientData.SmokingHis = $("#smoking3").val();
         }
-
+        
         patientData = { data: JSON.stringify(patientData) };
 
         //防止多次提交
-        $("#savebutton").hidden();
+        //$("#savebutton").hidden();
         
         callPostAJAX('../Home/AddPatientInfo', patientData, 'JSON', function (data) {
             var result = angular.fromJson(data);

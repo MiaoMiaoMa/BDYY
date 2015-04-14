@@ -21,7 +21,7 @@ namespace DataProvider
             parameters[0].Value = uid;
             parameters[1].Value = pwd;
 
-            return SQLHelper.GetModel(getUserModel, ConnectionString, "[PatientUserLogin]", parameters);            
+            return SQLHelper.GetModel(getUserModel, ConnectionString, "[PatientUserLogin]", parameters);
         }
 
         //修改密码
@@ -53,7 +53,7 @@ namespace DataProvider
             parameters[0].Value = IdentityNumber;
 
             SqlDataReader reader = SQLHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "CheckUserExist", parameters);
-            if(reader.Read() )
+            if (reader.Read())
             {
                 if (reader["Patient_Usr_ID"] == DBNull.Value)
                 {
@@ -65,8 +65,8 @@ namespace DataProvider
                     return true;
                 }
             }
-            
-            return false;                        
+
+            return false;
         }
 
         //预约
@@ -101,8 +101,8 @@ namespace DataProvider
                 identityNumber = reader.GetString(0);
                 pwd = reader.GetString(3);
                 reader.Close();
-            }            
-        }        
+            }
+        }
 
         //获取用户基本信息
         public UsersModel GetPatientInfor(string uid)
@@ -119,12 +119,12 @@ namespace DataProvider
         private UsersModel getUserModel(SqlDataReader reader)
         {
             UsersModel user = new UsersModel();
-           
+
             user.UserID = reader["Patient_Usr_ID"].ToString();
             user.UserName = reader["Patient_Name"].ToString();
             user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
             user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);//reader["First_Use_Date"] == DBNull.Value ? "" : Convert.ToDateTime(reader["First_Use_Date"].ToString()).ToString("yyyy-MM-dd");
-          
+
             return user;
         }
 
@@ -150,9 +150,9 @@ namespace DataProvider
             user.Hospital = GetReaderToString(reader["Hospital_Name"]);
             user.Doctor = GetReaderToString(reader["Doctor"]);
             user.SmokingHisType = GetReaderToString(reader["Smoking_history_Type"]);
-            user.SmokingHis = GetReaderToString(reader["Smoking_history"]);
-            
-            
+            user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
+
+
             return user;
         }
     }

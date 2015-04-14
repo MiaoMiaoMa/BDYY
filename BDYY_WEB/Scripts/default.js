@@ -1,4 +1,17 @@
 ﻿var app = angular.module('mainApp', []);
+var PAGESIZE = 10;
+//分页
+app.filter('paging', function () {
+    return function (input, start, end) {
+        if (!input) return input;
+        start = +start; //parse to int
+        var result = [];
+        for (var i = start; i < input.length; i++) {
+            result.push(input[i]);
+        }
+        return result;
+    }
+});
 
 //日期控件
 app.directive('datepickers', function () {

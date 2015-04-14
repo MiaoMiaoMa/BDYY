@@ -13,6 +13,7 @@ namespace BDYY_WEB.Models
         public string UserPWD { get; set; }
         public string Gender { get; set; }
         public string Birthday { get; set; }
+        public string Age { get; set; }
         public string MobilPhoneNumber { get; set; }
         public string EmgPhoneNumber { get; set; }
         public string IdentityType { get; set; }

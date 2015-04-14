@@ -48,5 +48,18 @@ namespace DataProvider
                 }
             }
         }
+
+        public static int CalculateAgeByBirthDay(string birthDay)
+        {
+            DateTime now = DateTime.Now;
+            DateTime birthDate;
+            int age = 0;
+            if (DateTime.TryParse(birthDay, out birthDate))
+            {
+                age = now.Year - birthDate.Year;
+                if (now.Month < birthDate.Month || (now.Month == birthDate.Month && now.Day < birthDate.Day)) age--;
+            }
+            return age;
+        }
     }
 }

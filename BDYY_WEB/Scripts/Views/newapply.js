@@ -45,5 +45,4 @@ function ApplyForAgain($scope, $window)
             }
         }, null);
     }
-
 }

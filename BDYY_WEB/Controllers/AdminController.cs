@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Newtonsoft.Json;
 using BDYY_WEB.Classes;
 using BDYY_WEB.Models;
 using DataProvider;
@@ -12,8 +13,7 @@ namespace BDYY_WEB.Controllers
 {
     public class AdminController : BaseController
     {
-        //
-        // GET: /Admin/
+        AdminProvider db = new AdminProvider();
 
         public ActionResult Login()
         {
@@ -62,7 +62,6 @@ namespace BDYY_WEB.Controllers
             bool IsSuccess = false;
             try
             {
-                AdminProvider db = new AdminProvider();
                 AdminModels admin = db.CheckUserLogin(uid, pwd);
                 if (!string.IsNullOrEmpty(admin.UserID))
                 {
@@ -74,6 +73,30 @@ namespace BDYY_WEB.Controllers
             catch { }
 
             return Json(new { IsSuccess = IsSuccess }, "text/html", JsonRequestBehavior.AllowGet);
+        }
+
+        //获取预约审核列表
+        public string GetAppointReviewList(string searchType, string reviewType, string searchContentStart, string searchContentEnd)
+        {
+            List<UsersModel> patientList = db.GetAppointmentReview(searchType, reviewType, searchContentStart, searchContentEnd);
+
+            return JsonConvert.SerializeObject(patientList);
+        }
+
+        /// <summary>
+        /// “赠药审批管理”，“客服管理”返回界面和预约审核界面一样。审核部门ID是1. 客服部门的部门ID是2.
+        /// </summary>
+        /// <param name="searchType"></param>
+        /// <param name="reviewType"></param>
+        /// <param name="department"></param>
+        /// <param name="searchContentStart"></param>
+        /// <param name="searchContentEnd"></param>
+        /// <returns></returns>
+        public string GetApplicationReviewList(string searchType, string reviewType, string department, string searchContentStart, string searchContentEnd)
+        {
+            List<UsersModel> patientList = db.GetApplicationReview(searchType, reviewType, department, searchContentStart, searchContentEnd);
+
+            return JsonConvert.SerializeObject(patientList);
         }
 
     }

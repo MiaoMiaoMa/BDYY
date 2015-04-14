@@ -29,6 +29,24 @@ namespace DataProvider
             return entity;
         }
 
+        public static List<TModel> GetModelList<TModel>(Func<SqlDataReader, List<TModel>> getModel, string connectionString, string commandText, params SqlParameter[] commandParameters)
+            where TModel : new()
+        {
+            List<TModel> entityList = new List<TModel>();
+
+            using (var reader = ExecuteReader(connectionString, CommandType.StoredProcedure, commandText, commandParameters))
+            {
+                if (reader.Read())
+                {
+                    entityList = getModel(reader);
+
+                    reader.Close();
+                }
+            }
+
+            return entityList;
+        }
+
         public static int ExecuteNonQuery(string connectionString, CommandType commandType, string commandText, params SqlParameter[] commandParameters)
         {
             SqlCommand cmd = new SqlCommand();

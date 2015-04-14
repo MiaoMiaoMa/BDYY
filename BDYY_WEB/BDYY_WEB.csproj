@@ -296,6 +296,8 @@
     <Content Include="images\usermenu_title_white_bg.gif" />
     <Content Include="images\warn.png" />
     <Content Include="images\yydj.png" />
+    <Content Include="Scripts\Admin\approveManage.js" />
+    <Content Include="Scripts\Admin\serviceManage.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\default.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -314,6 +316,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Admin\appointmentReview.js" />
     <Content Include="Scripts\Views\login.js" />
     <Content Include="Scripts\Views\newapply.js" />
     <Content Include="Scripts\Views\newpatient.js" />

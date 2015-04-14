@@ -3,7 +3,8 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div class="mainbox">
+
+<div class="mainbox" ng-controller="ServiceManage">
         <div class="clearfix">
             <!--导航-->
             <div class="yarnlet">>> 基本信息</div>
@@ -15,7 +16,8 @@
                     <table class="search" width="100%">
                         <tr>
                             <td>检索：                               
-                                <select size="1" name="D7">
+                                <select size="1" name="D7" ng-model="SearchCondition.searchType">
+                                    <option value="0"></option>
                                     <option value="1">唯一码</option>
                                     <option value="2">身份证号</option>
                                     <option value="3">主治医生</option>
@@ -24,7 +26,8 @@
                                     <option value="7">满足5个月</option>
                                     <option value="8">满足6个月</option>
                                 </select>
-                                <select size="1" name="D77">
+                                <select size="1" name="D77" ng-model="SearchCondition.reviewType">
+                                    <option value="0"></option>
                                     <option value="1">待审核</option>
                                     <option value="2">未通过</option>
                                     <option value="3">审核通过</option>
@@ -34,7 +37,7 @@
                             <td>
                                 <input type="text" name="T1" />
                             </td>
-                            <td class="btn_search"><a href="#">查询</a></td>
+                            <td class="btn_search"><a href="#" ng-click="onSearch()">查询</a></td>
                         </tr>
                     </table>
                 </div>
@@ -54,60 +57,21 @@
                             <td class="bg_thead">城市</td>
                             <td class="bg_thead">详细</td>
                         </tr>
-                        <tr class="border_t_n">
-                            <td>001</td>
-                            <td>刘广成</td>
-                            <td>男</td>
-                            <td>65</td>
-                            <td>13876473642</td>
-                            <!--  <td>310425193709042411</td>-->
-                            <td>test@eltest.com</td>
-                            <td>1937-9-4</td>
-                            <td>上海市            
-            <td>上海            
-            <td>
-                <input name="Search2" type="button" class="bt_add" value="查看" />
-                <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
+                        <tr class="border_t_n" ng-repeat="patient in patientList">
+                            <td ng-bind="$index"></td>
+                            <td ng-bind="patient.UserName"></td>
+                            <td ng-bind="patient.Gender"></td>
+                            <td ng-bind="patient.Age"></td>
+                            <td ng-bind="patient.MobilPhoneNumber"></td>
+                            <td ng-bind="patient.Mailbox"></td>
+                            <td ng-bind="patient.FirstUseDate"></td>
+                            <td ng-bind="patient.Province"> </td>           
+                            <td ng-bind="patient.City">            
+                            <td>
+                                <input name="Search2" type="button" class="bt_add" value="查看" />
+                                <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
                         </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>吴梦婷</td>
-                            <td>女</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <!-- <td>310425198009042411</td>-->
-                            <td>test@eltest.com</td>
-                            <td>1937-9-4</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>003</td>
-                            <td>李向涛</td>
-                            <td>男</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <!--  <td>310425198009042411</td>-->
-                            <td>test@eltest.com</td>
-                            <td>1937-9-4</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>004</td>
-                            <td>刘向阳</td>
-                            <td>男</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <!--  <td>310425198009042411</td>-->
-                            <td>test@eltest.com</td>
-                            <td>1937-9-4</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
+                       
                         <tbody>
                         </tbody>
                     </table>
@@ -117,3 +81,5 @@
         </div>
         <!--end-->
     </div>
+
+<script src="~/Scripts/Admin/ServiceManage.js"></script>

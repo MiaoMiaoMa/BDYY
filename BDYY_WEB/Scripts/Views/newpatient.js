@@ -5,14 +5,15 @@ function AddPatientBasicInfo($scope, $window)
     callAJAX('../Home/GetPatientInfoEmptyModel', null, 'JSON', function (data) {
         if (data) {
             $scope.PatientInfo = data.patient;
-            //$scope.IdentityType = data.identityType;
-            //$scope.Province = data.province;
-            //$scope.Hospital = data.hospital;
         }
     }, null);
 
     $scope.Submit = function () {
         patientData = angular.copy($scope.PatientInfo);
+        if (patientData.Province == '0' || patientData.City == '0') {
+            alert("请选择省市！");
+            return;
+        }
         if (patientData.IdentityType == "1" && !isCardNo(patientData.IdentityNumber)) {
             return;
         }

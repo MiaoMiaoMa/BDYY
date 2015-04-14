@@ -73,6 +73,8 @@ namespace BDYY_WEB.Controllers
             patient.Gender = "男";
             patient.Hospital = "杭州师范大学附属医院";
             patient.PathologyType = "鳞癌";
+            //patient.Province = "请选择";
+            //patient.City = "请选择";
             
             var data = new
             {

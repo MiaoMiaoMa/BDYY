@@ -93,8 +93,80 @@
                     <tr>
                         <th>省份：</th>
                         <td>
-                            <select size="1" name="D2" class="input" ng-model="PatientInfo.Province" required>
+                            <!--
+                            <select size="1" name="D2">
                                 <option>请选择省市</option>
+                            </select>
+                                -->
+                            <select name="sheng" id="to_cn" onchange="set_city(this, document.getElementById('city')); WYL();" class="input" ng-model="PatientInfo.Province" required>
+
+                                <option value="0">请选择</option>
+                                <option value="北京">北京</option>
+
+                                <option value="上海">上海</option>
+
+                                <option value="天津">天津</option>
+
+                                <option value="重庆">重庆</option>
+
+                                <option value="河北省">河北省</option>
+
+                                <option value="山西省">山西省</option>
+
+                                <option value="辽宁省">辽宁省</option>
+
+                                <option value="吉林省">吉林省</option>
+
+                                <option value="黑龙江省">黑龙江省</option>
+
+                                <option value="江苏省">江苏省</option>
+
+                                <option value="浙江省">浙江省</option>
+
+                                <option value="安徽省">安徽省</option>
+
+                                <option value="福建省">福建省</option>
+
+                                <option value="江西省">江西省</option>
+
+                                <option value="山东省">山东省</option>
+
+                                <option value="河南省">河南省</option>
+
+                                <option value="湖北省">湖北省</option>
+
+                                <option value="湖南省">湖南省</option>
+
+                                <option value="广东省">广东省</option>
+
+                                <option value="海南省">海南省</option>
+
+                                <option value="四川省">四川省</option>
+
+                                <option value="贵州省">贵州省</option>
+
+                                <option value="云南省">云南省</option>
+
+                                <option value="陕西省">陕西省</option>
+
+                                <option value="甘肃省">甘肃省</option>
+
+                                <option value="青海省">青海省</option>
+
+                                <option value="内蒙古">内蒙古</option>
+
+                                <option value="广西">广西</option>
+
+                                <option value="西藏">西藏</option>
+
+                                <option value="宁夏">宁夏</option>
+
+                                <option value="新疆">新疆</option>
+
+                                <option value="香港">香港</option>
+
+                                <option value="澳门">澳门</option>
+                                <option value="台湾">台湾</option>
                             </select>
                             <strong><span style="color: #F00">*</span></strong></td>
                         <td>&nbsp;</td>
@@ -102,8 +174,13 @@
                     <tr>
                         <th>城市：</th>
                         <td>
-                            <select size="1" name="D" class="input" ng-model="PatientInfo.City" required>
+                            <!--
+                            <select size="1" name="D" class="input"  required>
                                 <option>请选择省市</option>
+                            </select>
+                            -->
+                            <select id="city" name="shi" class="input" ng-model="PatientInfo.City" required>
+                                <option value="0">请选择</option>
                             </select>
                             <strong><span style="color: #F00">*</span></strong></td>
                         <td>&nbsp;</td>
@@ -118,7 +195,7 @@
                     <tr>
                         <th>医院名称：</th>
                         <td>
-                            <select size="1" name="textfield7"class="input"  id="textfield7" ng-model="PatientInfo.Hospital" required>
+                            <select size="1" name="textfield7" class="input" id="textfield7" ng-model="PatientInfo.Hospital" required>
                                 <option value="杭州师范大学附属医院" selected>杭州师范大学附属医院</option>
                                 <option value="杭州市红十字会医院">杭州市红十字会医院</option>
                                 <option value="杭州市余杭区中医院">杭州市余杭区中医院</option>
@@ -213,5 +290,6 @@
         </div>
     </div>
 </div>
-
+<script src="~/Scripts/Views/ProvinceCity.js"></script>
 <script src="~/Scripts/Views/NewPatient.js"></script>
+

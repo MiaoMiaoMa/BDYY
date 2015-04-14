@@ -317,6 +317,7 @@
     <Content Include="Scripts\Views\login.js" />
     <Content Include="Scripts\Views\newapply.js" />
     <Content Include="Scripts\Views\newpatient.js" />
+    <Content Include="Scripts\Views\ProvinceCity.js" />
     <Content Include="Scripts\Views\tools.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

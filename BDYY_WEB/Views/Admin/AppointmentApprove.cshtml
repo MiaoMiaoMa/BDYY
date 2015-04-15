@@ -4,7 +4,7 @@
 }
 
 <div class="mainbox" ng-controller="AppointApprove">
-        <div class="clearfix">
+    <div class="clearfix">
             <!--导航-->
             <div class="yarnlet">>> 基本信息</div>
             <!--操作按钮-->
@@ -67,7 +67,7 @@
                             <td ng-bind="patient.Province"> </td>           
                             <td ng-bind="patient.City">            
                             <td>
-                                <input name="Search2" type="button" class="bt_add" value="查看" />
+                                <input name="Search2" type="button" class="bt_add" value="查看" ng-click="showApprove($index)" />
                                 <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
                         </tr>
                        
@@ -78,7 +78,89 @@
             </div>
             <!--nr end-->
         </div>
-        <!--end-->
-    </div>
+
+    <div id="ApproveDiv" style="display:none">
+        <div class="bg"></div>
+        <div style="width: 750px; height: 550px; left: 292.5px; top: -257px; display: block;" class="pop_up_box"> 
+        <div class="pop_up_contnet">
+            <div class="pop_up_contnet_top">
+                <div class="edialogheaderbg_l">
+                    <div class="edialogheaderbg_r">
+                        <div class="edialogheadertitle" name="DragTitle">患者预约审核</div>
+                        <div ng-click="closeSE()" class="edialogclose" title="点此关闭"></div>
+                    </div>
+                </div>
+            </div> 
+            <div class="Guide_content">
+                <div class="edialogbodybg_l">
+                    <div class="edialogbodybg_r">
+                        <div class="edialogbody">
+                                <div class="l_height_30 mr_10" class="l_height_30 mr_10">
+                                      <div class="mt_5  gridiframe border_t_n" style="overflow-y:scroll; max-height:350px;">                                      
+                                        <div class="yarnlet" >基本信息</div>
+                                        <div class="nrframe2 mt_10">
+                                         <table class="pcb ">
+                                           <tr>
+                                             <th>病人姓名 ：</th>
+                                             <td ng-bind="patientInfo.UserName"></td>
+                                             <th>出生年月：</th>
+                                             <td ng-bind="patientInfo.Birthday"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>性别：</th>
+                                             <td ng-bind="patientInfo.Gender"></td>
+                                             <th>手机号：</th>
+                                             <td ng-bind="patientInfo.MobilPhoneNumber"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>身份证号：</th>
+                                             <td ng-bind="patientInfo.IdentityNumber"></td>
+                                             <th>邮箱：</th>
+                                             <td ng-bind="patientInfo.Mailbox"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>省份：</th>
+                                             <td ng-bind="patientInfo.Province"></td>
+                                             <th>城市：</th>
+                                             <td ng-bind="patientInfo.City"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>常住地址：</th>
+                                             <td ng-bind="patientInfo.Address"></td>
+                                             <th>医院名称：</th>
+                                             <td ng-bind="patientInfo.Hospital"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>主治医生：</th>
+                                             <td ng-bind="patientInfo.Doctor"></td>
+                                             <th>病例分型：</th>
+                                             <td ng-bind="patientInfo.PathologyType"></td>
+                                           </tr>
+                                           <tr>
+                                             <th>首次用药时间：</th>
+                                             <td ng-bind="patientInfo.FirstUseDate"></td>
+                                             <th>吸烟史：</th>
+                                             <td ng-bind="SmokingHisType"></td>
+                                           </tr>
+                                           <tr>
+                                             <td colspan="4" style="text-align:center"><input name="Search8" type="button"class="btnsave" value="审核同意" ng-click="approve(patientInfo.UserID)" /></td>
+                                           </tr>
+                                         </table>
+                                        </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='edialogfooterbg_l'>
+				    <div class='edialogfooterbg_r'>
+					    <div class='edialogfooterbg'></div>
+				    </div>
+			    </div>
+            </div>
+        </div>
+</div>
 
 <script src="~/Scripts/Admin/appointApprove.js"></script>

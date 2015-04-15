@@ -53,11 +53,15 @@ namespace BDYY_WEB.Controllers
         }
 
         [SessionExpireFilter]
-        public string GetPatientAllInfo()
+        public string GetPatientAllInfo(string uid)
         {
             UsersModel Patient = new UsersModel();
             UsersProvider db = new UsersProvider();
-            Patient = db.GetPatientInfor(Session[USRID].ToString());
+            if (string.IsNullOrEmpty(uid))
+            {
+                uid = Session[USRID].ToString();
+            }
+            Patient = db.GetPatientInfor(uid);
             return JsonConvert.SerializeObject(Patient);            
         }
 

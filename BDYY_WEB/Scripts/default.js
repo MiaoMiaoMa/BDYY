@@ -13,6 +13,42 @@ app.filter('paging', function () {
     }
 });
 
+app.factory('MyFactory', function ($http) {    
+    return {
+        callAJAX : function callAJAX(url, data, dataType, callbackSuccess, callbackError)
+        {
+            $.ajax({
+                async: false,
+                cache: false,
+                url: url,
+                data: data,
+                dataType: dataType,//'JSON'
+                success: function (data) {
+                    if (typeof callbackSuccess == "function") {
+                        callbackSuccess(data);
+                    }
+                },
+                error: function (data) {
+                    if (typeof callbackError == "function") {
+                        callbackError(data);
+                    }
+                }
+            });
+        },
+
+        showSmokingStr: function (SmokingHisType, SmokingHis) {
+            var str = "不吸烟";
+            if (SmokingHisType == '1')
+                str = "不吸烟";
+            else if (SmokingHisType == '2')
+                str = "吸烟" + SmokingHis + "年";
+            else if (SmokingHisType == '3')
+                str = "已戒烟" + SmokingHis + "年";
+            return str;
+        }
+    }
+});
+
 //日期控件
 app.directive('datepickers', function () {
     return {

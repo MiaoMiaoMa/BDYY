@@ -99,5 +99,12 @@ namespace BDYY_WEB.Controllers
             return JsonConvert.SerializeObject(patientList);
         }
 
+        public JsonResult Approve(string uid)
+        {
+            bool result = db.ReviewBaseInfor(uid, Session[USRID].ToString());
+            return Json(new { result = result }, "text/html", JsonRequestBehavior.AllowGet);
+        }
+
+       
     }
 }

@@ -1,4 +1,4 @@
-﻿function AppointApprove($scope)
+﻿function AppointApprove($scope, MyFactory)
 {
     $scope.currentPage = 1;
     $scope.pageSize = PAGESIZE;
@@ -31,6 +31,44 @@
         }
     }
 
+    $scope.showApprove = function ($index) {
+        var bh = $(document).height();
+        var bw = $(window).width();
+        var wh = $(window).height();
+        var popwidth = 900;
+        var popheight = 450;
+        var v_left = (bw - popwidth) / 2;
+        var v_top = bh > popheight ? (bh - popheight) / 2 : 0;
+        $('.edialogheadertitle').text($scope.titleBig);
+        $(".bg").css({ width: bw, height: bh, display: "block" })
+        $('.pop_up_box').css({ width: popwidth, height: popheight });
+        $('.pop_up_box').css({ left: v_left, top: v_top, display: "block" });
+        $("#ApproveDiv").show();
+
+        MyFactory.callAJAX('../Account/GetPatientAllInfo', { uid: $scope.patientList[$index].UserID }, 'JSON', function (data) {
+            if (data) {
+                $scope.patientInfo = data;
+                $scope.SmokingHisType = MyFactory.showSmokingStr($scope.patientInfo.SmokingHisType, $scope.patientInfo.SmokingHis);
+            }
+        }, null);
+    }
+
+    $scope.approve = function (userID) {
+        MyFactory.callAJAX('../Admin/Approve', { uid: userID }, 'JSON', function (data) {
+            if (data && data.result) {
+                $scope.closeSE();
+                alert("审批成功！");
+            }
+        }, null);
+    }
+
+    $scope.closeSE = function() {
+        $("#ApproveDiv").hide();
+        $(".bg").css({ display: "none" })
+        $('.pop_up_box').css({ display: "none" });
+    }
+
     //初始化数据
     $scope.onSearch();
 }
+

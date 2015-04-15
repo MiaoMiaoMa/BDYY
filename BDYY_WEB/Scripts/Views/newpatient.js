@@ -56,18 +56,12 @@ function AddPatientBasicInfo($scope, $window)
 }
 
 //Controller for 用户基本信息页
-function PatientInfo($scope) {
+function PatientInfo($scope, MyFactory) {
     $scope.SmokingHisType = "不吸烟";
-    callAJAX('../Account/GetPatientAllInfo', null, 'JSON', function (data) {
+    MyFactory.callAJAX('../Account/GetPatientAllInfo', null, 'JSON', function (data) {
         if (data) {
             $scope.PatientInfo = data;
-            if ($scope.PatientInfo.SmokingHisType == '1')
-                $scope.SmokingHisType = "不吸烟";
-            else if ($scope.PatientInfo.SmokingHisType == '2')
-                $scope.SmokingHisType = "吸烟" + $scope.PatientInfo.SmokingHis + "年";
-            else if ($scope.PatientInfo.SmokingHisType == '3')
-                $scope.SmokingHisType = "已戒烟" + $scope.PatientInfo.SmokingHis + "年";
-
+            $scope.SmokingHisType = MyFactory.showSmokingStr($scope.PatientInfo.SmokingHisType, $scope.PatientInfo.SmokingHis);
         }
     }, null);
 }

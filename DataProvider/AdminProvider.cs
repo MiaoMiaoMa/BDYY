@@ -64,6 +64,26 @@ namespace DataProvider
             return SQLHelper.GetModelList<UsersModel>(UsersProvider.getUserModelInfoList, ConnectionString, "GetApplicationReview", parameters);
         }
 
+        //修改密码
+        public bool ReviewBaseInfor(string patientId, string operater)
+        {
+            SqlParameter[] parameters = {
+                                            new SqlParameter("Patient_Usr_ID", SqlDbType.VarChar),
+                                            new SqlParameter("Operater", SqlDbType.VarChar)
+                                        };
+            parameters[0].Value = patientId;
+            parameters[1].Value = operater;
+
+            if (SQLHelper.ExecuteNonQuery(ConnectionString, CommandType.StoredProcedure, "ReviewBaseInfor", parameters) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //Map to Admin Entity
         private AdminModels getUserModel(SqlDataReader reader)
         {

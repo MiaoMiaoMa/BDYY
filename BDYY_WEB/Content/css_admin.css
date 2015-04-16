@@ -715,23 +715,22 @@ ul li {
 	border-spacing: 0;
 	width:100%;
 	font-size:14px;
-	padding: 10px;
-	border: 1px #f5f5f5 solid;
+	border: 0px #f5f5f5 solid;
+	
 	
 }
 .pcb td {
-	padding:10px;
-	border-bottom: 1px #f5f5f5 solid;
-	border-top: 1px #f5f5f5 solid;
+	padding:7px;
+	border-bottom: 0px #f5f5f5 solid;
+	border-top: 0px #f5f5f5 solid;
 }
 .pcb th {
 	text-align: right;
-	padding: 5px;
-	color: #242424;
-	font-weight: 300;
-	background-color: #F3F3F3;
-	border-bottom: 1px #fff solid;
-	border-right: 1px #fff solid;
+	font-weight:100;
+	padding: 7px;
+	color: #2b87be;
+	border-bottom: 0px #fff solid;
+	border-right: 0px #fff solid;
 }
 .title_1 {
 	background: #093;
@@ -1556,10 +1555,12 @@ input {
 	height: auto;
 	border-left: 1px #E4E4E4 solid;
 	border-right: 1px #E4E4E4 solid;
-	border-bottom: 4px #E4E4E4 solid;
+	border-bottom: 4px #2b87be solid;
 	border-top: 1px #E4E4E4 solid;	
 	padding: 10px;
 	margin:10px;
+	background-color:#fff;
+	border-radius:5px;
 	
 }
 .nrframe1 {
@@ -1964,4 +1965,131 @@ width:100%;
 .txlb td{ 
 padding:10px;
 
+}
+
+/*流程*/
+.lctitle{
+	margin:0px auto;
+	width:900px;
+	height:25px;
+	line-height:25px;
+	font-size:15px;
+	font-weight:bold;
+	border-bottom:1px #ccc solid;
+	margin-bottom:10px;
+	margin-top:20px;
+	}
+.blxx {
+	margin:0px auto;
+	height:auto;
+	width:900px;
+
+}
+.blxx li{
+	LINE-HEIGHT: 24px;
+	HEIGHT: 24px
+
+}
+.lcframe {
+	margin:0px auto;
+	min-height:700px;
+	height:auto;
+	background:url(../images/lcbg.png);
+	width:900px;
+	
+}
+.xx{
+	margin:0px auto;
+	margin-top:30px;
+	width:900px; 
+	background-color:#f4f4f4;
+	height:50px;
+}
+.brxm{
+	background:url(../images/user.png) no-repeat;
+	width:92px;
+	height:92px;
+	margin-left:113px;
+	margin-bottom:40px;
+	font-size:20px;
+	color:#069;
+	font-weight:bold;
+	text-align:center;
+	line-height:92px;
+}
+.lcwrap{ 
+	width:auto;
+	height:auto;
+	margin-top:10px;
+	margin:0px auto;
+	overflow:hidden;
+	margin-bottom:20px;
+	
+
+}
+.lcmc{
+	width:100px;
+	height:auto;
+	padding:5px;
+	font-size:15px;
+	color:#333;
+	font-weight:bold;
+	float:left;
+	margin-left:10px;
+	text-align:right;
+	padding-right:20px;
+	
+}
+.lcbj{
+	background:url(../images/y1.png) no-repeat;
+	width:50px;
+	height:25px;
+	margin:0px auto;
+	
+}
+.yes{
+	background:url(../images/y2.png) no-repeat;
+	width:50px;
+	height:25px;
+	margin:0px auto;
+	
+}
+.lcbg{ 
+	width:50px;
+	height:auto;
+	min-height:1000px;
+	background:url(../images/lcbg.png);
+	float:left;
+}
+.lcsearch{
+	width:auto;
+	height:auto;
+	padding-left:40px;
+	padding-top:10px;
+	font-size:13px;
+	margin-top:40px;
+}
+.lcnr{
+	width:650px;
+	height:auto;
+	padding-left:20px;
+	padding-top:10px;
+	font-size:13px;
+	border-top:1px #cccccc solid;
+	margin-top:10px;	
+}
+.lcnr li{
+	LINE-HEIGHT: 24px;
+	HEIGHT: 24px
+}
+.zlxz {
+	margin: 0px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	padding: 10px;
+}
+.zlxz td {
+	line-height: 30px;
+	border-bottom: 1px #ccc dotted;
 }

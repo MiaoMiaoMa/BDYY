@@ -64,7 +64,7 @@ namespace DataProvider
             return SQLHelper.GetModelList<UsersModel>(UsersProvider.getUserModelInfoList, ConnectionString, "GetApplicationReview", parameters);
         }
 
-        //修改密码
+        //预约审核
         public bool ReviewBaseInfor(string patientId, string operater)
         {
             SqlParameter[] parameters = {
@@ -84,6 +84,34 @@ namespace DataProvider
             }
         }
 
+        public bool AddComments(CommentModels comments)
+        {
+            SqlParameter[] parameters = {
+                                            new SqlParameter("Patient_Usr_ID", comments.CommentPatientID),
+                                            new SqlParameter("CommentOperater", comments.CommentOperater),
+                                            new SqlParameter("Comment", comments.CommentContent)
+                                        };
+            if (SQLHelper.ExecuteNonQuery(ConnectionString, CommandType.StoredProcedure, "AddReviewComment", parameters) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public List<CommentModels> GetCommentsList(string uid)
+        {
+            SqlParameter[] parameters = {
+                                            new SqlParameter("Patient_Usr_ID", SqlDbType.VarChar)
+                                        };
+            parameters[0].Value = uid;
+
+            return SQLHelper.GetModelList<CommentModels>(getCommentsList, ConnectionString, "GetReviewComment", parameters);
+            
+        }
+
         //Map to Admin Entity
         private AdminModels getUserModel(SqlDataReader reader)
         {
@@ -91,6 +119,22 @@ namespace DataProvider
             admin.UserID = GetReaderToString(reader["Usr_Name"]);
             admin.UserDepart = GetReaderToString(reader["Usr_Desc"]);
             return admin;
+        }
+
+        private List<CommentModels> getCommentsList(SqlDataReader reader)
+        {
+            List<CommentModels> commentsList = new List<CommentModels>();
+            while (reader.Read())
+            {
+                CommentModels comment = new CommentModels();
+                comment.CommentID = GetReaderToString(reader["CommentHis_ID"]);
+                comment.CommentOperater = GetReaderToString(reader["CommentOperater"]);
+                comment.CommentDate = GetReaderToDateTimeHourString(reader["CommentDate"]);
+                comment.CommentContent = GetReaderToString(reader["Comment"]);
+                commentsList.Add(comment);
+            }
+
+            return commentsList;
         }
 
     }

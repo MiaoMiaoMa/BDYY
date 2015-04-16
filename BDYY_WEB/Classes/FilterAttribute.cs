@@ -16,8 +16,8 @@ namespace BDYY_WEB.Classes
             if (user == null)
             {
                 //send them off to the login page
-                var url = new UrlHelper(filterContext.RequestContext);
-                var loginUrl = url.Content("~/Home/Index");
+                var url = new UrlHelper(filterContext.RequestContext);                
+                var loginUrl = filterContext.RouteData.Values.ContainsValue("Admin") ?  url.Content("~/Admin/Login") : url.Content("~/Home/Index");
                 session.RemoveAll();
                 session.Clear();
                 session.Abandon();

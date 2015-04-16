@@ -33,7 +33,13 @@ namespace BDYY_WEB.Controllers
         }
 
         [SessionExpireFilter]
-        public ActionResult ApproveManage()
+        public ActionResult ApproveManage(string uid)
+        {
+            return View();
+        }
+
+        [SessionExpireFilter]
+        public ActionResult ApproveManageList()
         {
             return View();
         }
@@ -105,6 +111,42 @@ namespace BDYY_WEB.Controllers
             return Json(new { result = result }, "text/html", JsonRequestBehavior.AllowGet);
         }
 
+        public string GetPatinetALlInfo(string uid)
+        {
+            UsersModel patient = new UsersModel();
+            UsersProvider udb = new UsersProvider();
+            patient = udb.GetPatientInfor(uid);
+            CommentModels comment = new CommentModels();
+            comment.CommentPatientID = uid;
+            comment.CommentOperater = Session[USRID].ToString();
+            List<CommentModels> commentsList = db.GetCommentsList(uid);
+            var result = new
+            {
+                patient = patient,
+                comments = comment,
+                commentsList = commentsList
+            };
+            return JsonConvert.SerializeObject(result);
+        }
+
+        public string AddComment(string data, string patientID)
+        {
+            bool result = false;
+            List<CommentModels> commentsList = null;
+            if (!string.IsNullOrEmpty(data))
+            {
+                //var comment = JsonConvert.DeserializeObject<CommentModels>(data);
+                CommentModels comment = new CommentModels()
+                {
+                    CommentOperater = Session[USRID].ToString(),
+                    CommentPatientID = patientID,
+                    CommentContent = Server.HtmlEncode(data)
+                };
+                result = db.AddComments(comment);
+                commentsList = db.GetCommentsList(patientID);
+            }
+            return JsonConvert.SerializeObject(commentsList);
+        }
        
     }
 }

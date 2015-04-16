@@ -1,13 +1,14 @@
 ﻿function getURLParas(url) {
-    var URLParams = new Object();
-    if (url.indexOf("?") >= 0) {
-        var aParams = url.substr(1).split('&');
-        for (i = 0 ; i < aParams.length ; i++) {
-            var aParam = aParams[i].split('=');
-            URLParams[aParam[0]] = aParam[1];
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
         }
     }
-    return URLParams;
+    return theRequest;
 }
 
 function getRandomCode() {

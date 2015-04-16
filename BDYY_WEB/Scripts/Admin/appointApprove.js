@@ -45,6 +45,7 @@
         $('.pop_up_box').css({ left: v_left, top: v_top, display: "block" });
         $("#ApproveDiv").show();
 
+
         MyFactory.callAJAX('../Account/GetPatientAllInfo', { uid: $scope.patientList[$index].UserID }, 'JSON', function (data) {
             if (data) {
                 $scope.patientInfo = data;

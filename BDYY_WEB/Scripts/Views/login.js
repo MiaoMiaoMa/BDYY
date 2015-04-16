@@ -1,7 +1,10 @@
 ﻿$(document).ready(function () {
     $("body").keydown(function (e) {
         if (e.keyCode == 13) {
-            login();
+            if (window.location.href.toLowerCase().indexOf("admin") > 0)
+                login('admin');
+            else
+                login();
         }
     });
     var t = getRandomCode();

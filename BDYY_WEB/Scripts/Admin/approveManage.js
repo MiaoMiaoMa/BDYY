@@ -1,4 +1,4 @@
-﻿function ApproveManage($scope)
+﻿function ApproveManageList($scope, $window)
 {
     $scope.currentPage = 1;
     $scope.pageSize = PAGESIZE;
@@ -21,16 +21,34 @@
         return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, department:'1', searchContentStart: "", searchContentEnd: "" };
     }
 
-    //显示列表序号
-    $scope.showIndex = function (index) {
-        if ($scope.currentPage == 1) {
-            return index + 1;
-        }
-        else {
-            return ($scope.currentPage - 1) * PAGESIZE + index + 1;
-        }
+    $scope.showManagePage = function (uid) {
+        $window.location.href = "../Admin/ApproveManage?patientID=" + uid;
     }
 
     //初始化数据
     $scope.onSearch();
+}
+
+function ApproveManage($scope, $window, MyFactory)
+{
+    
+    var paras = getURLParas($window.location.href);
+    var uid = typeof paras["patientID"] != "undefined" ? paras["patientID"] : "";
+    MyFactory.callAJAX('../Admin/GetPatinetALlInfo', { uid: uid}, 'JSON', function (data) {
+        if (data) {
+            $scope.patientInfo = data.patient;
+            $scope.comments = data.comments;
+            $scope.commentsList = data.commentsList;
+            $scope.SmokingHisType = MyFactory.showSmokingStr($scope.patientInfo.SmokingHisType, $scope.patientInfo.SmokingHis);
+        }
+    }, null);
+
+    $scope.addComments = function () {
+        MyFactory.callAJAX('../Admin/AddComment', { data: $('#commentContent').val(), patientID: $scope.patientInfo.UserID}, 'JSON', function (data) {
+            if (data.length >0) {
+                $scope.commentsList = data;
+                $('#commentContent').val('');
+            }
+        }, null);
+    }
 }

@@ -49,6 +49,32 @@ namespace DataProvider
             }
         }
 
+        /// <summary>
+        /// return "1900-02-28"
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        public static string GetReaderToDateTimeHourString(object reader)
+        {
+            DateTime date;
+            if (reader == DBNull.Value)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                if (DateTime.TryParse(reader.ToString(), out date))
+                {
+                    return date.ToString("yyyy-MM-dd HH:mm");
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+
         public static int CalculateAgeByBirthDay(string birthDay)
         {
             DateTime now = DateTime.Now;

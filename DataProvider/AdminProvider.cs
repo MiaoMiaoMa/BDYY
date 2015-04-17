@@ -101,6 +101,7 @@ namespace DataProvider
             }
         }
 
+        //获取所有Comments
         public List<CommentModels> GetCommentsList(string uid)
         {
             SqlParameter[] parameters = {
@@ -116,11 +117,15 @@ namespace DataProvider
         private AdminModels getUserModel(SqlDataReader reader)
         {
             AdminModels admin = new AdminModels();
-            admin.UserID = GetReaderToString(reader["Usr_Name"]);
-            admin.UserDepart = GetReaderToString(reader["Usr_Desc"]);
+            while (reader.Read())
+            {
+                admin.UserID = GetReaderToString(reader["Usr_Name"]);
+                admin.UserDepart = GetReaderToString(reader["Usr_Desc"]);
+            }
             return admin;
         }
 
+        //Map to Comments Entity
         private List<CommentModels> getCommentsList(SqlDataReader reader)
         {
             List<CommentModels> commentsList = new List<CommentModels>();

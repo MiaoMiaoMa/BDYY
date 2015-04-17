@@ -119,12 +119,13 @@ namespace DataProvider
         private UsersModel getUserModel(SqlDataReader reader)
         {
             UsersModel user = new UsersModel();
-
-            user.UserID = reader["Patient_Usr_ID"].ToString();
-            user.UserName = reader["Patient_Name"].ToString();
-            user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
-            user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);//reader["First_Use_Date"] == DBNull.Value ? "" : Convert.ToDateTime(reader["First_Use_Date"].ToString()).ToString("yyyy-MM-dd");
-
+            while (reader.Read())
+            {
+                user.UserID = reader["Patient_Usr_ID"].ToString();
+                user.UserName = reader["Patient_Name"].ToString();
+                user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
+                user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);//reader["First_Use_Date"] == DBNull.Value ? "" : Convert.ToDateTime(reader["First_Use_Date"].ToString()).ToString("yyyy-MM-dd");
+            }
             return user;
         }
 
@@ -133,25 +134,27 @@ namespace DataProvider
         {
             UsersModel user = new UsersModel();
 
-            user.UserID = reader["Patient_Usr_ID"].ToString();
-            user.UserName = reader["Patient_Name"].ToString();
-            user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
-            user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);
-            user.Gender = GetReaderToString(reader["Gender"]);
-            user.Birthday = GetReaderToDateTimeString(reader["Birthday"]); 
-            user.MobilPhoneNumber = GetReaderToString(reader["Mobil_PhoneNumber"]);
-            user.EmgPhoneNumber = GetReaderToString(reader["Emg_PhoneNumber"]);
-            user.IdentityNumber = GetReaderToString(reader["Identity_number"]);
-            user.Mailbox = GetReaderToString(reader["Mailbox"]);
-            user.Province = GetReaderToString(reader["Province_Name"]);
-            user.City = GetReaderToString(reader["City_Name"]);
-            user.Address = GetReaderToString(reader["Permanent_Address"]);
-            user.RegistrationDate = GetReaderToDateTimeString(reader["Registration_Date"]);
-            user.Hospital = GetReaderToString(reader["Hospital_Name"]);
-            user.Doctor = GetReaderToString(reader["Doctor"]);
-            user.SmokingHisType = GetReaderToString(reader["Smoking_history_Type"]);
-            user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
-
+            while (reader.Read())
+            {
+                user.UserID = reader["Patient_Usr_ID"].ToString();
+                user.UserName = reader["Patient_Name"].ToString();
+                user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
+                user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);
+                user.Gender = GetReaderToString(reader["Gender"]);
+                user.Birthday = GetReaderToDateTimeString(reader["Birthday"]);
+                user.MobilPhoneNumber = GetReaderToString(reader["Mobil_PhoneNumber"]);
+                user.EmgPhoneNumber = GetReaderToString(reader["Emg_PhoneNumber"]);
+                user.IdentityNumber = GetReaderToString(reader["Identity_number"]);
+                user.Mailbox = GetReaderToString(reader["Mailbox"]);
+                user.Province = GetReaderToString(reader["Province_Name"]);
+                user.City = GetReaderToString(reader["City_Name"]);
+                user.Address = GetReaderToString(reader["Permanent_Address"]);
+                user.RegistrationDate = GetReaderToDateTimeString(reader["Registration_Date"]);
+                user.Hospital = GetReaderToString(reader["Hospital_Name"]);
+                user.Doctor = GetReaderToString(reader["Doctor"]);
+                user.SmokingHisType = GetReaderToString(reader["Smoking_history_Type"]);
+                user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
+            }
 
             return user;
         }
@@ -162,8 +165,7 @@ namespace DataProvider
             List<UsersModel> userList = new List<UsersModel>();
 
             while (reader.Read())
-            {
-
+            {                                
                 UsersModel user = new UsersModel();
 
                 user.UserID = reader["Patient_Usr_ID"].ToString();

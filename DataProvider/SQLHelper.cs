@@ -18,7 +18,7 @@ namespace DataProvider
 
             using (var reader = ExecuteReader(connectionString, CommandType.StoredProcedure, commandText, commandParameters))
             {
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     entity = getModel(reader);
                     
@@ -36,7 +36,7 @@ namespace DataProvider
 
             using (var reader = ExecuteReader(connectionString, CommandType.StoredProcedure, commandText, commandParameters))
             {
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     entityList = getModel(reader);
 

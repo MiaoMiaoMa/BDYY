@@ -45,6 +45,7 @@
     <Compile Include="ProviderBase.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadFilesProvider.cs" />
     <Compile Include="UsersProvider.cs" />
   </ItemGroup>
   <ItemGroup>

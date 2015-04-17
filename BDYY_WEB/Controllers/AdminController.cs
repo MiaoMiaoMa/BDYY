@@ -8,12 +8,14 @@ using Newtonsoft.Json;
 using BDYY_WEB.Classes;
 using BDYY_WEB.Models;
 using DataProvider;
+using System.IO;
 
 namespace BDYY_WEB.Controllers
 {
     public class AdminController : BaseController
     {
         AdminProvider db = new AdminProvider();
+        UploadFilesProvider fileDB = new UploadFilesProvider();
 
         public ActionResult Login()
         {
@@ -73,12 +75,23 @@ namespace BDYY_WEB.Controllers
                 {
                     IsSuccess = true;
                     Session[USRID] = admin.UserID;
+                    Session[ATTACHMENTDIR] = AttachmentDir();
                     FormsAuthentication.SetAuthCookie(string.Format("{0}", admin.UserID), false);
                 }
             }
             catch { }
 
             return Json(new { IsSuccess = IsSuccess }, "text/html", JsonRequestBehavior.AllowGet);
+        }
+
+        private string AttachmentDir()
+        {
+            string attachmentDir = this.Request.PhysicalApplicationPath + "Upload\\";
+            if (!Directory.Exists(attachmentDir))
+            {
+                Directory.CreateDirectory(attachmentDir);
+            }
+            return attachmentDir;
         }
 
         //获取预约审核列表
@@ -111,6 +124,7 @@ namespace BDYY_WEB.Controllers
             return Json(new { result = result }, "text/html", JsonRequestBehavior.AllowGet);
         }
 
+        //审批页面获取用户全部信息
         public string GetPatinetALlInfo(string uid)
         {
             UsersModel patient = new UsersModel();
@@ -120,11 +134,17 @@ namespace BDYY_WEB.Controllers
             comment.CommentPatientID = uid;
             comment.CommentOperater = Session[USRID].ToString();
             List<CommentModels> commentsList = db.GetCommentsList(uid);
+            List<UploadFileModels> fileList = fileDB.GetUploadFilesByPatientID(uid);
+            foreach (var file in fileList)
+            {
+                file.FileGUIDName = "../Upload/" + file.FileGUIDName;
+            }
             var result = new
             {
                 patient = patient,
                 comments = comment,
-                commentsList = commentsList
+                commentsList = commentsList,
+                filesList = fileList
             };
             return JsonConvert.SerializeObject(result);
         }
@@ -146,6 +166,30 @@ namespace BDYY_WEB.Controllers
                 commentsList = db.GetCommentsList(patientID);
             }
             return JsonConvert.SerializeObject(commentsList);
+        }
+
+        [HttpPost]
+        public string AddFile(FormCollection formValues)
+        {            
+            string patientID = formValues["patientID"].ToString();
+            //deal with attachment
+            HttpFileCollectionBase files = HttpContext.Request.Files;
+            List<UploadFileModels> attachmentlist = new List<UploadFileModels>();
+            UploadFiles uploadFiles = new UploadFiles();
+            string fileExt = string.Empty;
+            for (int i = 0; i < files.Count; i++)
+            {
+                HttpPostedFileBase hpfb = files[i];
+                Guid fileID;
+                if (hpfb.ContentLength > 0)
+                {
+                   uploadFiles.SaveUploadFiles(hpfb.InputStream, hpfb.FileName, out fileExt, out fileID, patientID);                    
+                }
+            }
+
+            attachmentlist = fileDB.GetUploadFilesByPatientID(patientID);   
+            return JsonConvert.SerializeObject(attachmentlist);    
+            
         }
        
     }

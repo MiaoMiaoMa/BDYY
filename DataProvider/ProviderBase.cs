@@ -24,6 +24,25 @@ namespace DataProvider
             }
         }
 
+        public static bool GetReaderToBool(object reader)
+        {
+            if (reader == DBNull.Value)
+            {
+                return false;
+            }
+            else
+            {
+                if (reader.ToString() == "0")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         /// <summary>
         /// return "1900-02-28"
         /// </summary>

@@ -9,5 +9,7 @@ namespace BDYY_WEB.Controllers
     public class BaseController : Controller
     {
         public static string USRID = "Usr_ID";
+
+        public static string ATTACHMENTDIR = "AttachmentDir";
     }
 }

@@ -48,6 +48,18 @@ a:hover {
 .bule a {
 	color: #07519a
 }
+.zlxz a {
+    color: #333;
+	font: normal 62.5% Verdana, Arial, Helvetica, sans-serif, "微软雅黑";
+    text-decoration: none;
+	outline: none;
+	cursor: pointer;
+    font-size:12px;
+}
+zlxz a:hover {
+	text-decoration: none;
+	color:#fff
+}
 /*去掉点击后的虚框*/
 a:active {
 star:expression(this.onFocus=this.blur());
@@ -1114,7 +1126,7 @@ input {
 	background: #5ab8ef;
 	color: #333;
 }
-.btnsave {
+.upload {
 	font-family: "微软雅黑";
 	margin: 0px;
 	padding: 0px;
@@ -1129,10 +1141,23 @@ input {
 	cursor: pointer;
 	font-size: 13px;
 	padding-bottom: 1px;
+    position:relative;
+    overflow:hidden;
 }
-.btnsave:hover {
+.upload input:hover {
 	background: url(../images/bt_bg.png) 0px -60px no-repeat;
+    cursor: pointer;
 }
+.upload input {
+    display:block !important;
+    width: 90px !important;
+	height: 28px !important;
+    opacity:0;
+    position:absolute;
+    margin: 0px;
+    cursor: pointer;
+ }
+   
 
 .btnup {
 	margin: 0px;

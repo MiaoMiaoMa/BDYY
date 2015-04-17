@@ -4,11 +4,11 @@
 }
 
 
-<div class="mainbox" ng-controller="ApproveManage">
-
-    <!--导航-->
-    <div class="yarnlet">>用药审核</div>
-
+ 
+    <div class="mainbox" ng-controller="ApproveManage">
+        <form id="formApprove"  method="post"   enctype="multipart/form-data" >    
+        <!--导航-->
+        <div class="yarnlet">>用药审核</div>
 
     <!--基本信息-->
     <div class="xx"></div>
@@ -81,7 +81,6 @@
             </div>
         </div>
         <!--基本信息end-->
-
         <!--b病历信息-->
         <div class="lcwrap">
             <div class="lcmc">病历信息</div>
@@ -156,50 +155,33 @@
         </div>
         <!--end-->
 
-        <!--b-->
-        <div class="lcwrap">
-            <div class="lcmc">资料上传</div>
-            <div class="lcbj yes float_l"></div>
-            <div class="lcnr float_l">
+       
+            <!--b-->
+            <div class="lcwrap">
+                <div class="lcmc">资料上传</div>
+                <div class="lcbj yes float_l"></div>
+                <div class="lcnr float_l">
                 <table class="zlxz">
-                    <tr>
-                        <td>
-                            <img src="images/crumb_arr.png" width="4" height="8" />
-                            贝达药业业务管理系统用户申请用药</td>
-                        <td align="right">2015-03-04</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/crumb_arr.png" width="4" height="8" />
-                            贝达药业业务管理系统用户申请用药</td>
-                        <td align="right">2015-03-04</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/crumb_arr.png" width="4" height="8" />
-                            贝达药业业务管理系统用户申请用药</td>
-                        <td align="right">2015-03-04</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/crumb_arr.png" width="4" height="8" />
-                            贝达药业业务管理系统用户申请用药</td>
-                        <td align="right">2015-03-04</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="images/crumb_arr.png" width="4" height="8" />
-                            贝达药业业务管理系统用户申请用药</td>
-                        <td align="right">2015-03-04</td>
-                    </tr>
-
-                </table>
-                <table class="pcb ">
-
+                  <tr ng-repeat="file in filesList"><td><img src="../images/crumb_arr.png" width="4" height="8" /><a class="filename" href="{{file.FileGUIDName}}" target="_blank"> {{file.FileName}}</a></td><td align="right">{{file.FileAddDate}}</td></tr>
+                
+                  </table>
+                     <table class="pcb ">
 
                     <tr>
-                        <td colspan="4" style="text-align: left">
-                            <input name="Search8" type="button" class="btnsave" value="上传附件" onclick="location.href = 'yycg.html'" /></td>
+                        <td style="text-align: left;width:35px;">
+                            <div class="upload">                             
+                                <input type="file" id="attachmentFile"/>上传附件                                
+                            </div>
+                        </td>
+                        <td>
+                             <div class="upload">
+                            <input name="btnUpload" id="btnUpload" type="button" class="btnsave" ng-click="addFiles()"/>全部上传
+                                 </div>
+                            <input name="patientID" id="patientID" value="{{patientInfo.UserID}}"  type="hidden" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div id="file-list"></div></td>
                     </tr>
                 </table>
             </div>
@@ -282,41 +264,7 @@
         <img src="images/arrow.gif" width="5" height="11" />
         历史申请
     </div>
-    <div class="blxx">
-        <table class="zlxz">
-            <tr>
-                <td>
-                    <img src="images/crumb_arr.png" width="4" height="8" />
-                    贝达药业业务管理系统用户申请用药</td>
-                <td align="right">2015-03-04</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/crumb_arr.png" width="4" height="8" />
-                    贝达药业业务管理系统用户申请用药</td>
-                <td align="right">2015-03-04</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/crumb_arr.png" width="4" height="8" />
-                    贝达药业业务管理系统用户申请用药</td>
-                <td align="right">2015-03-04</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/crumb_arr.png" width="4" height="8" />
-                    贝达药业业务管理系统用户申请用药</td>
-                <td align="right">2015-03-04</td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="images/crumb_arr.png" width="4" height="8" />
-                    贝达药业业务管理系统用户申请用药</td>
-                <td align="right">2015-03-04</td>
-            </tr>
-
-        </table>
-    </div>
+    
 
     <!--  备注  --->
 
@@ -324,12 +272,6 @@
         <img src="images/arrow.gif" width="5" height="11" />
         备注
     </div>
-
-
-    <!--  备注  --->
-
-    <!--  备注  --->
-
     <div class="lctitle">
     </div>
     <div class="blxx" ng-repeat="comment in commentsList">
@@ -344,6 +286,7 @@
 
             </table>
         </div>
+
     </div>
     <!--  备注  --->
     <div class="lctitle">
@@ -369,4 +312,10 @@
 
 </div>
 
+
+        </form>
+    </div>
+
+<script src="~/Scripts/jquery.MultiFile.js"></script>    
 <script src="~/Scripts/Admin/approveManage.js"></script>
+

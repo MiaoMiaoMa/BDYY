@@ -39,6 +39,7 @@ function ApproveManage($scope, $window, MyFactory)
             $scope.patientInfo = data.patient;
             $scope.comments = data.comments;
             $scope.commentsList = data.commentsList;
+            $scope.filesList = data.filesList;
             $scope.SmokingHisType = MyFactory.showSmokingStr($scope.patientInfo.SmokingHisType, $scope.patientInfo.SmokingHis);
         }
     }, null);
@@ -51,4 +52,37 @@ function ApproveManage($scope, $window, MyFactory)
             }
         }, null);
     }
+
+   $scope.addFiles = function () {
+
+        if ($("#file-list").html() == "") {
+            $window.alert("请选择上传文件！");
+            return false;
+        }
+        var formData = new FormData($("#formApprove")[0]);
+
+        $.ajax({
+            url: "../Admin/AddFile",
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            dataType: 'JSON',
+            success: function (data) {
+                $scope.filesList = data;
+                $("#file-list").html("");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+    }
+  
+
 }
+
+
+
+
+$('#attachmentFile').MultiFile({ list: '#file-list' });

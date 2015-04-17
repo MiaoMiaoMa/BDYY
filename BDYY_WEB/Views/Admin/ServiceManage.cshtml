@@ -5,17 +5,17 @@
 
 
 <div class="mainbox" ng-controller="ServiceManage">
-        <div class="clearfix">
-            <!--导航-->
-            <div class="yarnlet">>> 客服管理</div>
-            <!--操作按钮-->
-            <!--end-->
-            <!--nr-->
-            <div class="nrframe mt_10 mr_10">
-                <div class="search_bg">
-                    <table class="search" width="100%">
-                        <tr>
-                            <td>检索：                               
+    <div class="clearfix">
+        <!--导航-->
+        <div class="yarnlet">>> 客服管理</div>
+        <!--操作按钮-->
+        <!--end-->
+        <!--nr-->
+        <div class="nrframe mt_10 mr_10">
+            <div class="search_bg">
+                <table class="search" width="100%">
+                    <tr>
+                        <td>检索：                               
                                 <select size="1" name="D7" class="input" ng-model="SearchCondition.searchType">
                                     <option value="0"></option>
                                     <option value="1">唯一码</option>
@@ -29,60 +29,61 @@
 
                                         -->
                                 </select>
-                                <select size="1" name="D77" class="input" ng-model="SearchCondition.reviewType">
-                                    <option value="0"></option>
-                                    <option value="1">待审核</option>
-                                    <option value="2">未通过</option>
-                                    <option value="3">审核通过</option>
-
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" name="T1" class="input" ng-model="SearchCondition.content" />
-                            </td>
-                            <td class="btn_search"><a href="#" ng-click="onSearch()">查询</a></td>
-                        </tr>
-                    </table>
-                </div>
-                <!--列表-->
-                <div class="gridiframe">
-                    <table class="gridcontent">
-                        <tr>
-                            <td class=" bg_thead">编号</td>
-                            <td class="bg_thead">患者姓名</td>
-                            <td class="bg_thead">性别</td>
-                            <td class=" bg_thead">年龄</td>
-                            <td class=" bg_thead">手机号</td>
-                            <!-- <td class=" bg_thead">身份证号</td>-->
-                            <td class=" bg_thead">邮箱</td>
-                            <td class="bg_thead">首次用药时间</td>
-                            <td class="bg_thead">省份</td>
-                            <td class="bg_thead">城市</td>
-                            <td class="bg_thead">详细</td>
-                        </tr>
-                        <tr class="border_t_n" ng-repeat="patient in patientList">
-                            <td ng-bind="$index"></td>
-                            <td ng-bind="patient.UserName"></td>
-                            <td ng-bind="patient.Gender"></td>
-                            <td ng-bind="patient.Age"></td>
-                            <td ng-bind="patient.MobilPhoneNumber"></td>
-                            <td ng-bind="patient.Mailbox"></td>
-                            <td ng-bind="patient.FirstUseDate"></td>
-                            <td ng-bind="patient.Province"> </td>           
-                            <td ng-bind="patient.City">            
-                            <td>
-                                <input name="Search2" type="button" class="bt_add" value="查看" />
-                                <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
-                        </tr>
-                       
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+                            <select size="1" name="D77" class="input" ng-model="SearchCondition.reviewType">
+                                <option value="0"></option>
+                                <option value="4">待审核</option>
+                                <option value="5">审核中</option>
+                                <option value="6">未通过</option>
+                                <option value="7">审核通过</option>
+                                <option value="8">终结</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="T1" class="input" ng-model="SearchCondition.content" />
+                        </td>
+                        <td class="btn_search"><a href="#" ng-click="onSearch()">查询</a></td>
+                    </tr>
+                </table>
             </div>
-            <!--nr end-->
+            <!--列表-->
+            <div class="gridiframe">
+                <table class="gridcontent">
+                    <tr>
+                        <td class=" bg_thead">编号</td>
+                        <td class="bg_thead">患者姓名</td>
+                        <td class="bg_thead">性别</td>
+                        <td class=" bg_thead">年龄</td>
+                        <td class=" bg_thead">手机号</td>
+                        <!-- <td class=" bg_thead">身份证号</td>-->
+                        <td class=" bg_thead">邮箱</td>
+                        <td class="bg_thead">首次用药时间</td>
+                        <td class="bg_thead">省份</td>
+                        <td class="bg_thead">城市</td>
+                        <td class="bg_thead">详细</td>
+                    </tr>
+                    <tr class="border_t_n" ng-repeat="patient in patientList">
+                        <td ng-bind="$index"></td>
+                        <td ng-bind="patient.UserName"></td>
+                        <td ng-bind="patient.Gender"></td>
+                        <td ng-bind="patient.Age"></td>
+                        <td ng-bind="patient.MobilPhoneNumber"></td>
+                        <td ng-bind="patient.Mailbox"></td>
+                        <td ng-bind="patient.FirstUseDate"></td>
+                        <td ng-bind="patient.Province"></td>
+                        <td ng-bind="patient.City">
+                        <td>
+                            <input name="Search2" type="button" class="bt_add" value="查看" />
+                            <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
+                    </tr>
+
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <!--end-->
+        <!--nr end-->
     </div>
+    <!--end-->
+</div>
 
 <script src="~/Scripts/Admin/ServiceManage.js"></script>

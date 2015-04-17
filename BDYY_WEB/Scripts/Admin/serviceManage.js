@@ -5,7 +5,7 @@
     $scope.SearchCondition = new Object();
     $scope.SearchCondition.searchType = '0';
     $scope.SearchCondition.reviewType = '0';
-
+    $scope.SearchCondition.centent = '';
 
 
     $scope.onSearch = function () {
@@ -17,7 +17,7 @@
     }
 
     $scope.conditionCombin = function () {
-        return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, department: '2', searchContentStart: "", searchContentEnd: "" };
+        return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, department: '2', searchContentStart: $scope.SearchCondition.centent, searchContentEnd: "" };
     }
 
     //显示列表序号

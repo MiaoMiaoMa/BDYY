@@ -6,7 +6,7 @@
 <div class="mainbox" ng-controller="ApproveManageList">
         <div class="clearfix">
             <!--导航-->
-            <div class="yarnlet">>> 基本信息</div>
+            <div class="yarnlet">>> 审批管理</div>
             <!--操作按钮-->
             <!--end-->
             <!--nr-->
@@ -15,17 +15,19 @@
                     <table class="search" width="100%">
                         <tr>
                             <td>检索：                               
-                                <select size="1" name="D7" ng-model="SearchCondition.searchType">
+                                <select size="1" name="D7" class="input" ng-model="SearchCondition.searchType">
                                     <option value="0"></option>
                                     <option value="1">唯一码</option>
                                     <option value="2">身份证号</option>
                                     <option value="3">主治医生</option>
                                     <option value="4">患者姓名</option>
+                                    <!--
                                     <option value="6">满足4个月</option>
                                     <option value="7">满足5个月</option>
                                     <option value="8">满足6个月</option>
+                                        -->
                                 </select>
-                                <select size="1" name="D77" ng-model="SearchCondition.reviewType">
+                                <select size="1" name="D77" class="input" ng-model="SearchCondition.reviewType">
                                     <option value="0"></option>
                                     <option value="1">待审核</option>
                                     <option value="2">未通过</option>
@@ -34,7 +36,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" name="T1" />
+                                <input type="text" class="input" name="T1" />
                             </td>
                             <td class="btn_search"><a href="#" ng-click="onSearch()">查询</a></td>
                         </tr>

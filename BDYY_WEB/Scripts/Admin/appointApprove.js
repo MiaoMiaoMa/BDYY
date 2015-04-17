@@ -6,7 +6,7 @@
     $scope.SearchCondition = new Object();
     $scope.SearchCondition.searchType = '0';
     $scope.SearchCondition.reviewType = '0';
-
+    $scope.SearchCondition.content = '';
     
 
     $scope.onSearch = function () {
@@ -18,7 +18,7 @@
     }
 
     $scope.conditionCombin = function () {
-        return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, searchContentStart: "", searchContentEnd: "" };
+        return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, searchContentStart: $scope.SearchCondition.content, searchContentEnd: "" };
     }
 
     //显示列表序号
@@ -36,7 +36,7 @@
         var bw = $(window).width();
         var wh = $(window).height();
         var popwidth = 900;
-        var popheight = 450;
+        var popheight = 550;
         var v_left = (bw - popwidth) / 2;
         var v_top = bh > popheight ? (bh - popheight) / 2 : 0;
         $('.edialogheadertitle').text($scope.titleBig);

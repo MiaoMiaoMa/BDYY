@@ -13,11 +13,19 @@
     @Scripts.Render("~/Scripts/angular.js")
     @Scripts.Render("~/Scripts/Views/tools.js")
     @Scripts.Render("~/Scripts/default.js")
+
+
+    @Scripts.Render("~/Scripts/Admin/general.js")
+    @Scripts.Render("~/Scripts/Admin/jQuery.js")
+
     
     <link href="~/Content/jquery-ui.css") rel="stylesheet" />
     <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
     <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
     <script src="~/Scripts/jquery-ui-datepicker.js"></script>
+
+ 
+
 </head>
 <body>
  <div class="mainhead">
@@ -30,7 +38,7 @@
             <ul class="clear">
 
 
-                <a href="default.html">
+                <a href="../Admin/Default">
                     <li class="float_l navnoselect" style="border-left: 1px solid #47a8e1;"><span class="nav_monitor mt_20"></span>
                         <br />
                         工作台</li>
@@ -231,5 +239,8 @@
 <div class="mainfoot"><span class="ml_20 mr_20 float_r">系统版本：2.0.1.0524 检查更新</span></div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/Scripts/Admin/pop_up.js")
+     @Scripts.Render("~/Scripts/Admin/tabcard.js")
 </body>
 </html>

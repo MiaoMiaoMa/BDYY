@@ -9,21 +9,48 @@ function AddPatientBasicInfo($scope, $window)
     }, null);
 
     $scope.Submit = function () {
+
         patientData = angular.copy($scope.PatientInfo);
-        if (patientData.Province == '0' || patientData.City == '0') {
-            alert("请选择省市！");
+
+        if (!check(patientData.Birthday)) {
+            //alert(patientData.MobilPhoneNumber);
+            alert("请填写正确的出生日期！");
+            $("#textfield2").focus();
             return;
         }
-        if (patientData.IdentityType == "1" && !isCardNo(patientData.IdentityNumber)) {
+        if (!checkMobile(patientData.MobilPhoneNumber)) {
+            //alert(patientData.MobilPhoneNumber);
+            alert("请填写正确的手机号！");
+            $("#textfield4").focus();
+            return;
+        }
+        if (patientData.IdentityType == "1" && !IdCardValidate(patientData.IdentityNumber)) {
+            alert("身份证输入不合法");
+            $("#textfield3").focus();
             return;
         }
         if ($("#indetityNumber2").val() != patientData.IdentityNumber) {
-            alert("请确认身份证号码！");
+            alert("请确认两次身份证号码输入一致！");
             $("#indetityNumber2").focus();
             return;
         }
-        if ($("#gzs").attr("checked") != "checked")
-        {
+        if (patientData.Province == '0') {
+            alert("请选择省份！");
+            $("#to_cn").focus();
+            return;
+        }
+        patientData = angular.copy($scope.PatientInfo);
+        if (patientData.City == '0') {
+            alert("请选择城市！");
+            $("#city").focus();
+            return;
+        }
+        if (!check(patientData.FirstUseDate)) {
+            alert("请填写正确的首次用药时间！");
+            $("#textfield9").focus();
+            return;
+        }
+        if ($("#gzs").attr("checked") != "checked") {
             alert("请确认您已阅读告知书！");
             $("#gzs").focus();
             return;

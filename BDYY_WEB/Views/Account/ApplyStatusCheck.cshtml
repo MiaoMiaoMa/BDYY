@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="../content/css.css" rel="stylesheet" type="text/css">
-<div class="searchexpert">
+<div class="searchexpert" ng-controller="ApplyStatusCheck">
           <div class="searchexpert_left"> <span class="searchexpert_left_title">状态查询</span> </div>
           <div class="searchexpert_center"></div>
           <div class="searchexpert_right"> </div>
@@ -20,34 +20,12 @@
             <td class=" bg_thead">申请时间</td>
        
           </tr>
-          <tr class="border_t_n">
-            <td >001</td>
-            <td>预约申请</td>
-            <td>审核中</td>
-            <td>2015-2-4</td>
-        
-          </tr>
-          <tr>
-            <td>002</td>
-            <td>首次免费申请</td>
-            <td>审核中</td>
-            <td>2015-2-4</td>
- 
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>第二次免费申请</td>
-            <td>审核中</td>
-            <td>2015-2-4</td>
-       
-          </tr>
-          <tr>
-            <td>004</td>
-            <td>第二次免费申请</td>
-            <td>审核中</td>
-            <td>2015-2-4</td>
-     
-          </tr>
+          <tr class="border_t_n" ng-repeat="status in applyStatus">
+            <td ng-bind="$index"></td>
+            <td ng-bind="status.ItemName"></td>
+            <td ng-bind="status.ReviewStatus"></td>
+            <td ng-bind="status.SubmitDate"></td>        
+          </tr>         
           <tbody>
           </tbody>
         </table>
@@ -55,3 +33,4 @@
  
           </div>
         </div>
+<script src="~/Scripts/Views/newapply.js"></script>

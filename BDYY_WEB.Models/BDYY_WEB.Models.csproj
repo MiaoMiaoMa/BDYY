@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AdminModels.cs" />
     <Compile Include="CommentModels.cs" />
+    <Compile Include="ReviewStatus.cs" />
     <Compile Include="UploadFileModels.cs" />
     <Compile Include="UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

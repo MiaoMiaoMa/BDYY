@@ -134,10 +134,10 @@ namespace DataProvider
 
         
         /// <summary>
-        /// 待完成
+        /// 获取申请状态查询列表
         /// </summary>
         /// <param name="uid"></param>
-        public void GetReviewStatus(string uid)
+        public List<ApplyStatus> GetReviewStatus(string uid)
         {
             string status = string.Empty;
             SqlParameter[] parameters = {
@@ -145,12 +145,23 @@ namespace DataProvider
                                         };
             parameters[0].Value = uid;
 
-            SqlDataReader reader = SQLHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "GetReviewStatus", parameters);
-            if (reader.Read())
-            {
-                
-            }
+            return SQLHelper.GetModelList(getModelList, ConnectionString, "GetReviewStatus", parameters);
         }
 
+        //map to 状态
+        private List<ApplyStatus> getModelList(SqlDataReader reader)
+        {
+            List<ApplyStatus> applyStatus = new List<ApplyStatus>();
+            while (reader.Read())
+            {
+                ApplyStatus status = new ApplyStatus();
+                status.PatientID = GetReaderToString(reader["Patient_Usr_ID"]);
+                status.ItemName = GetReaderToString(reader["ItemName"]);
+                status.ReviewStatus = GetReaderToString(reader["ReviewStatus"]);
+                status.SubmitDate = GetReaderToDateTimeString(reader["SubmitDate"]);
+                applyStatus.Add(status);
+            }
+            return applyStatus;
+        }
     }
 }

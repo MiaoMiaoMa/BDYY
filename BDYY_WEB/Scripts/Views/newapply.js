@@ -46,3 +46,10 @@ function ApplyForAgain($scope, $window)
         }, null);
     }
 }
+
+function ApplyStatusCheck($scope)
+{
+    callAJAX('../Account/GetStatusCheck', null, 'JSON', function (data) {
+        $scope.applyStatus = data;
+    }, null);
+}

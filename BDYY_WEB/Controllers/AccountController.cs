@@ -38,7 +38,7 @@ namespace BDYY_WEB.Controllers
         }
 
         [SessionExpireFilter]
-        public ActionResult StatusCheck()
+        public ActionResult ApplyStatusCheck()
         {
             return View();
         }
@@ -128,9 +128,14 @@ namespace BDYY_WEB.Controllers
             return Json(new { IsSuccess = isSuccess, errormsg = msg }, "text/html", JsonRequestBehavior.AllowGet);            
         }
 
-        public string GetStatusCheck(string patientID)
+        //获取状态检查
+        [SessionExpireFilter]
+        public string GetStatusCheck()
         {
-            return string.Empty;
+            List<ApplyStatus> reviewStatusList = new List<ApplyStatus>();
+            ApplyProvider db = new ApplyProvider();
+            reviewStatusList = db.GetReviewStatus(Session[USRID].ToString());
+            return JsonConvert.SerializeObject(reviewStatusList);
         }
 
         #endregion

@@ -374,7 +374,7 @@
     <Content Include="Views\Home\Success.cshtml" />
     <Content Include="Views\Account\ApplyFor.cshtml" />
     <Content Include="Views\Account\ApplyAgain.cshtml" />
-    <Content Include="Views\Account\StatusCheck.cshtml" />
+    <Content Include="Views\Account\ApplyStatusCheck.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Default.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />

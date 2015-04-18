@@ -1157,7 +1157,7 @@ input {
     margin: 0px;
     cursor: pointer;
  }
-   
+
 
 .btnup {
 	margin: 0px;
@@ -2117,4 +2117,17 @@ padding:10px;
 .zlxz td {
 	line-height: 30px;
 	border-bottom: 1px #ccc dotted;
+}
+
+.MultiFile-label a {
+    color: #333;
+	font: normal 62.5% Verdana, Arial, Helvetica, sans-serif, "微软雅黑";
+    text-decoration: none;
+	outline: none;
+	cursor: pointer;
+    font-size:12px;
+}
+.MultiFile-label a:hover {
+	text-decoration: none;
+	color:#fff
 }

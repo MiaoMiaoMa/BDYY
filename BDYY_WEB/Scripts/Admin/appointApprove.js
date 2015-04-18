@@ -54,10 +54,16 @@
         }, null);
     }
 
-    $scope.approve = function (userID) {
-        MyFactory.callAJAX('../Admin/Approve', { uid: userID }, 'JSON', function (data) {
+    $scope.approve = function (petientID) {
+        MyFactory.callAJAX('../Admin/Approve', { petientID: petientID }, 'JSON', function (data) {
             if (data && data.result) {
                 $scope.closeSE();
+                for (var obj in $scope.patientList) {
+                    if (obj["petientID"] = patientID)
+                    {
+                        obj["Isverify"] = "3";
+                    }
+                }
                 alert("审批成功！");
             }
         }, null);

@@ -15,7 +15,7 @@ namespace DataProvider
         /// 首次申请用药前，需要检查预约是否通过审核，没通过不可以提交
         /// </summary>
         /// <param name="uid"></param>
-        /// <returns>是否预约通过审核   -1 待审核，0待审核，2未通过，3审核通过</returns>
+        /// <returns>是否预约通过审核   0待审核，2未通过，3审核通过</returns>
         public string CheckPatientStatus(string uid)
         {
             string status = string.Empty;

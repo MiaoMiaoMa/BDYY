@@ -123,7 +123,7 @@ namespace DataProvider
             {
                 user.UserID = reader["Patient_Usr_ID"].ToString();
                 user.UserName = reader["Patient_Name"].ToString();
-                user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
+                user.Isverify = GetReaderToString(reader["Isverify"]);
                 user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);//reader["First_Use_Date"] == DBNull.Value ? "" : Convert.ToDateTime(reader["First_Use_Date"].ToString()).ToString("yyyy-MM-dd");
             }
             return user;
@@ -138,7 +138,7 @@ namespace DataProvider
             {
                 user.UserID = reader["Patient_Usr_ID"].ToString();
                 user.UserName = reader["Patient_Name"].ToString();
-                user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
+                user.Isverify = GetReaderToString(reader["Isverify"]);
                 user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);
                 user.Gender = GetReaderToString(reader["Gender"]);
                 user.Birthday = GetReaderToDateTimeString(reader["Birthday"]);
@@ -154,6 +154,8 @@ namespace DataProvider
                 user.Doctor = GetReaderToString(reader["Doctor"]);
                 user.SmokingHisType = GetReaderToString(reader["Smoking_history_Type"]);
                 user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
+                user.DepartmentID = GetReaderToString(reader["DepartmentID"]);
+                user.StatusID = GetReaderToString(reader["StatusID"]);
             }
 
             return user;
@@ -170,7 +172,7 @@ namespace DataProvider
 
                 user.UserID = reader["Patient_Usr_ID"].ToString();
                 user.UserName = reader["Patient_Name"].ToString();
-                //user.Isverify = reader["Isverify"].ToString() == "0" ? false : true;
+                user.Isverify = GetReaderToString(reader["Isverify"]);
                 user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);
                 user.Gender = GetReaderToString(reader["Gender"]);
                 user.Birthday = GetReaderToDateTimeString(reader["Birthday"]);

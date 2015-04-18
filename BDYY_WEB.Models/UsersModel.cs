@@ -29,7 +29,7 @@ namespace BDYY_WEB.Models
         public string SmokingHisType { get; set; }
         public int SmokingHis { get; set; }
         public string PathologyType { get; set; }
-        public bool Isverify { get; set; }
+        public string Isverify { get; set; } 
         public string FirstUseDate { get; set; }
 
         public string ExpectedLeadDate { get; set; }
@@ -41,5 +41,8 @@ namespace BDYY_WEB.Models
         public string SellerName { get; set; }
         public string IsAccordFiveMouth { get; set; }
         public string IsDiseaseDiagnosis { get; set; }
+
+        public string DepartmentID { get; set; }
+        public string StatusID { get; set; }
     }
 }

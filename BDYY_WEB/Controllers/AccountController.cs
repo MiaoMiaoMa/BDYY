@@ -68,12 +68,14 @@ namespace BDYY_WEB.Controllers
         public string GetApplyFor()
         { 
             ApplyProvider db = new ApplyProvider();
+            UsersProvider udb = new UsersProvider();
             UsersModel patientOtherInfo = new UsersModel();
+            patientOtherInfo = udb.GetPatientInfor(Session[USRID].ToString());            
             patientOtherInfo.UserID = Session[USRID].ToString();
-            patientOtherInfo.IsGeneDetect = "1";
-            patientOtherInfo.Tumortage = "1";
-            patientOtherInfo.IsDiseaseDiagnosis = "1";
-            patientOtherInfo.IsAccordFiveMouth = "1";
+            patientOtherInfo.IsGeneDetect = string.IsNullOrEmpty(patientOtherInfo.IsGeneDetect) ? "1" : patientOtherInfo.IsGeneDetect;
+            patientOtherInfo.Tumortage = string.IsNullOrEmpty(patientOtherInfo.Tumortage) ? "1" : patientOtherInfo.Tumortage;
+            patientOtherInfo.IsDiseaseDiagnosis = string.IsNullOrEmpty(patientOtherInfo.IsDiseaseDiagnosis) ? "1" : patientOtherInfo.IsDiseaseDiagnosis;
+            patientOtherInfo.IsAccordFiveMouth = string.IsNullOrEmpty(patientOtherInfo.IsAccordFiveMouth) ? "1" : patientOtherInfo.IsAccordFiveMouth;
             //检查是否预约通过审核
             string patientStatus = db.CheckPatientStatus(Session[USRID].ToString());
             var data = new
@@ -124,6 +126,11 @@ namespace BDYY_WEB.Controllers
             }
 
             return Json(new { IsSuccess = isSuccess, errormsg = msg }, "text/html", JsonRequestBehavior.AllowGet);            
+        }
+
+        public string GetStatusCheck(string patientID)
+        {
+            return string.Empty;
         }
 
         #endregion

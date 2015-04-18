@@ -13,16 +13,12 @@
     @Scripts.Render("~/Scripts/angular.js")
     @Scripts.Render("~/Scripts/Views/tools.js")
     @Scripts.Render("~/Scripts/default.js")
-
-
-    @Scripts.Render("~/Scripts/Admin/general.js")
-    @Scripts.Render("~/Scripts/Admin/jQuery.js")
-
     
     <link href="~/Content/jquery-ui.css") rel="stylesheet" />
     <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
     <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
     <script src="~/Scripts/jquery-ui-datepicker.js"></script>
+    <script src="~/Scripts/jquery.MultiFile.js"></script>    
 
  
 
@@ -76,7 +72,7 @@
                         <ul>
                             <li><a href="#">药房管理</a>
                                 <ul>
-                                    <li><a href="AppointmentQueryList">药房管理</a></li>
+                                    <li><a href="../Admin/DrugStoreList">药房管理</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -152,7 +148,7 @@
                             <li>
                                 <a href="#">预约登记管理</a>
                                 <ul>
-                                    <li><a href="#.html">患者预约审核</a></li>
+                                    <li><a href="../Admin/AppointmentApprove">患者预约审核</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -164,7 +160,7 @@
                         <ul>
                             <li><a href="#">赠药审批管理</a>
                                 <ul>
-                                    <li><a href="#.html">审批管理</a></li>
+                                    <li><a href="../Admin/ApproveManageList">审批管理</a></li>
                      
                                 </ul>
                             </li>
@@ -176,7 +172,7 @@
                         <ul>
                             <li><a href="#">药房管理</a>
                                 <ul>
-                                    <li><a href="#.html">药房管理</a></li>
+                                    <li><a href="../Admin/DrugStoreList">药房管理</a></li>
                      
                                 </ul>
                             </li>
@@ -188,7 +184,7 @@
                         <ul>
                             <li><a href="#">客服管理</a>
                                 <ul>
-                                    <li><a href="#.html">客服管理</a></li>
+                                    <li><a href="../Admin/ServiceManage">客服管理</a></li>
                                
                                 </ul>
                             </li>
@@ -233,14 +229,12 @@
     </div>
    
      @RenderBody()
-    <br  <br /> <br /> <br /> <br /> <br  <br /> <br /> <br /> <br /> <br  <br /> <br /> <br /> <br />
-    <br  <br /> <br /> <br /> <br /> <br  <br /> <br /> <br /> <br /> <br  <br /> 
+    <br />  <br /> <br /> <br /> <br /> <br  <br /> <br /> <br /> <br /> <br />  <br /> <br /> <br /> <br />
+    <br />  <br /> <br /> <br /> <br /> <br  <br /> <br /> <br /> <br /> <br..></br..>  <br /> 
 <!--end-->
 <div class="mainfoot"><span class="ml_20 mr_20 float_r">系统版本：2.0.1.0524 检查更新</span></div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
-
-    @Scripts.Render("~/Scripts/Admin/pop_up.js")
-     @Scripts.Render("~/Scripts/Admin/tabcard.js")
+        @Scripts.Render("~/Scripts/Admin/general.js")
 </body>
 </html>

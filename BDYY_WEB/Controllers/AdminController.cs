@@ -17,6 +17,8 @@ namespace BDYY_WEB.Controllers
         AdminProvider db = new AdminProvider();
         UploadFilesProvider fileDB = new UploadFilesProvider();
 
+        #region View
+
         public ActionResult Login()
         {
             return View();
@@ -58,6 +60,15 @@ namespace BDYY_WEB.Controllers
             return View();
         }
 
+        [SessionExpireFilter]
+        public ActionResult DrugStoreList()
+        {
+            return View();
+        }
+
+        #endregion
+
+
         public ActionResult Logout()
         {
             Session.Clear();
@@ -94,6 +105,7 @@ namespace BDYY_WEB.Controllers
             return attachmentDir;
         }
 
+        #region 预约审核
         //获取预约审核列表
         public string GetAppointReviewList(string searchType, string reviewType, string searchContentStart, string searchContentEnd)
         {
@@ -101,6 +113,16 @@ namespace BDYY_WEB.Controllers
 
             return JsonConvert.SerializeObject(patientList);
         }
+
+        [SessionExpireFilter]
+        public JsonResult Approve(string petientID)
+        {
+            bool result = db.ReviewBaseInfor(petientID, Session[USRID].ToString());
+            return Json(new { result = result }, "text/html", JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region 赠药审批管理
 
         /// <summary>
         /// “赠药审批管理”，“客服管理”返回界面和预约审核界面一样。审核部门ID是1. 客服部门的部门ID是2.
@@ -118,13 +140,8 @@ namespace BDYY_WEB.Controllers
             return JsonConvert.SerializeObject(patientList);
         }
 
-        public JsonResult Approve(string uid)
-        {
-            bool result = db.ReviewBaseInfor(uid, Session[USRID].ToString());
-            return Json(new { result = result }, "text/html", JsonRequestBehavior.AllowGet);
-        }
-
         //审批页面获取用户全部信息
+        [SessionExpireFilter]
         public string GetPatinetALlInfo(string uid)
         {
             UsersModel patient = new UsersModel();
@@ -135,10 +152,7 @@ namespace BDYY_WEB.Controllers
             comment.CommentOperater = Session[USRID].ToString();
             List<CommentModels> commentsList = db.GetCommentsList(uid);
             List<UploadFileModels> fileList = fileDB.GetUploadFilesByPatientID(uid);
-            foreach (var file in fileList)
-            {
-                file.FileGUIDName = "../Upload/" + file.FileGUIDName;
-            }
+            
             var result = new
             {
                 patient = patient,
@@ -149,6 +163,24 @@ namespace BDYY_WEB.Controllers
             return JsonConvert.SerializeObject(result);
         }
 
+        //更新部门或者状态
+        [SessionExpireFilter]
+        public string UpdateDepartOrStatus(string patientID, string departTo, string statusTo, string isAppointment)
+        {
+            bool result = false;
+            if (!string.IsNullOrEmpty(patientID))
+            {
+                result = db.UpdatePatientDepartOrStatus(patientID, Session[USRID].ToString(), departTo, statusTo, isAppointment);
+            }
+
+            var data = new
+            {
+                result = result
+            };
+            return JsonConvert.SerializeObject(data);
+        }
+
+        [SessionExpireFilter]
         public string AddComment(string data, string patientID)
         {
             bool result = false;
@@ -169,6 +201,7 @@ namespace BDYY_WEB.Controllers
         }
 
         [HttpPost]
+        [SessionExpireFilter]
         public string AddFile(FormCollection formValues)
         {            
             string patientID = formValues["patientID"].ToString();
@@ -188,9 +221,10 @@ namespace BDYY_WEB.Controllers
             }
 
             attachmentlist = fileDB.GetUploadFilesByPatientID(patientID);   
-            return JsonConvert.SerializeObject(attachmentlist);    
-            
+            return JsonConvert.SerializeObject(attachmentlist);
+
         }
-       
+        #endregion
+
     }
 }

@@ -84,6 +84,26 @@ namespace DataProvider
             }
         }
 
+        //更新部门或更新状态
+        public bool UpdatePatientDepartOrStatus(string patientID, string operater, string departTo, string statusTo, string isAppointment)
+        {
+            SqlParameter[] parameter = {
+                                            new SqlParameter("Patient_Usr_ID", patientID),
+                                            new SqlParameter("ReviewOperater", operater),
+                                            new SqlParameter("ReviewDepartTo", departTo),
+                                            new SqlParameter("StatusTo", statusTo),
+                                            new SqlParameter("IsAppointment", isAppointment),
+                                       };
+            if (SQLHelper.ExecuteNonQuery(ConnectionString, CommandType.StoredProcedure, "Add_StatusByAppointment", parameter) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool AddComments(CommentModels comments)
         {
             SqlParameter[] parameters = {
@@ -112,6 +132,7 @@ namespace DataProvider
             return SQLHelper.GetModelList<CommentModels>(getCommentsList, ConnectionString, "GetReviewComment", parameters);
             
         }
+
 
         //Map to Admin Entity
         private AdminModels getUserModel(SqlDataReader reader)

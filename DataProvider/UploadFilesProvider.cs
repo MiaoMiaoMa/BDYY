@@ -54,7 +54,7 @@ namespace DataProvider
                 file.FileID = GetReaderToString(reader["AttachedID"]);
                 file.IsFirstApplication = GetReaderToBool(reader["IsFirstApplication"]);
                 file.FileGUID = reader.GetGuid(5);
-                file.FileGUIDName = file.FileGUID.ToString() + System.IO.Path.GetExtension(file.FileName);
+                file.FileGUIDName = "../Upload/" + file.FileGUID.ToString() + System.IO.Path.GetExtension(file.FileName);
                 
                 fileList.Add(file);
             }

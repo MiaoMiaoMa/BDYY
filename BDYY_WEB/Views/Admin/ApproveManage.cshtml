@@ -5,317 +5,312 @@
 
 
  
-    <div class="mainbox" ng-controller="ApproveManage">
-        <form id="formApprove"  method="post"   enctype="multipart/form-data" >    
-        <!--导航-->
-        <div class="yarnlet">>用药审核</div>
+<div class="mainbox" ng-controller="ApproveManage">
+    <form id="formApprove"  method="post"   enctype="multipart/form-data" >    
+    <!--导航-->
+    <div class="yarnlet">>用药审核</div>
 
     <!--基本信息-->
     <div class="xx"></div>
     <div class="lcframe">
-        <div class="lcwrap">
-            <div class="brxm float_l" ng-bind="patientInfo.UserName"></div>
-            <div class="lcsearch float_1">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-             更改部门:
-                <select class="input" size="1" name="D7">
-                    <option value="1">项目办公室</option>
-                    <option value="2">客服部门</option>
-                    <option value="3">药房</option>
+    <div class="lcwrap">
+        <div class="brxm float_l" ng-bind="patientInfo.UserName"></div>
+        <div class="lcsearch float_1">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            更改部门:
+            <select class="input" size="1" id="departSelect" ng-change="updateDepartOrStatus(true)" ng-model="patientInfo.DepartmentID">
+                <option value="1">项目办公室</option>
+                <option value="2">客服部门</option>
+                <option value="3">药房</option>
 
-                </select>
-                更改状态:
-                <select class="input" size="1" name="D">
-                    <option value="4">待审核</option>
-                    <option value="5">审核中</option>
-                    <option value="6">未通过</option>
-                    <option value="7">审核通过</option>
-                    <option value="8">终结</option>
-                </select>
-            </div>
+            </select>
+            更改状态:
+            <select class="input" size="1" id="statusSelect" ng-change="updateDepartOrStatus(false)"  ng-model="patientInfo.StatusID">
+                <option value="4">待审核</option>
+                <option value="5">审核中</option>
+                <option value="6">未通过</option>
+                <option value="7">审核通过</option>
+                <option value="8">终结</option>
+            </select>
+            <span ng-show="needShow" ng-bind="msg" style="color:#47be42"></span>
         </div>
+    </div>
 
-        <!--a-->
-        <div class="lcwrap">
-            <div class="lcmc">基本信息</div>
-            <div class="lcbj float_l"></div>
-            <div class="lcnr float_l">
+    <!--a-->
+    <div class="lcwrap">
+        <div class="lcmc">基本信息</div>
+        <div class="lcbj float_l"></div>
+        <div class="lcnr float_l">
 
-                <div class="nrframe2 mt_10">
-                    <table class="pcb ">
-                        <tr>
-                            <th>患者姓名 ：</th>
-                            <td ng-bind="patientInfo.UserName"></td>
-                            <th>性别：</th>
-                            <td ng-bind="patientInfo.Gender"></td>
-                        </tr>
-                        <tr>
-                            <th>年龄：</th>
-                            <td ng-bind="patientInfo.Age"></td>
-                            <th>邮箱：</th>
-                            <td ng-bind="patientInfo.Mailbox"></td>
-                        </tr>
-                        <tr>
-                            <th>手机号：</th>
-                            <td ng-bind="patientInfo.MobilPhoneNumber"></td>
-                            <th>备用联系方式：</th>
-                            <td ng-bind="patientInfo.EmgPhoneNumber"></td>
-                        </tr>
-                        <tr>
-                            <th>身份证号：</th>
-                            <td colspan="2" ng-bind="patientInfo.IdentityNumber"></td>
-                        </tr>
-                        <tr>
-                            <th>省份：</th>
-                            <td ng-bind="patientInfo.Province"></td>
-                            <th>城市：</th>
-                            <td ng-bind="patientInfo.Address"></td>
-                        </tr>
-                        <tr>
-                            <th>常住地址：</th>
-                            <td colspan="2" ng-bind="patientInfo.Address"></td>
-                        </tr>
-                    </table>
-                </div>
-
-            </div>
-        </div>
-        <!--基本信息end-->
-        <!--b病历信息-->
-        <div class="lcwrap">
-            <div class="lcmc">病历信息</div>
-            <div class="lcbj yes float_l"></div>
-            <div class="lcnr float_l">
-                <div class="nrframe2 mt_10">
-                    <table class="pcb ">
-                        <tr>
-                            <th>医院名称：</th>
-                            <td ng-bind="patientInfo.Hospital">华山医院</td>
-                            <th>主治医生：</th>
-                            <td ng-bind="patientInfo.Doctor">徐云龙</td>
-                        </tr>
-                        <tr>
-                            <th>首次用药时间：</th>
-                            <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
-                            <th>吸烟史：</th>
-                            <td ng-bind="patientInfo.SmokingHisType"></td>
-                        </tr>
-                        <tr>
-                            <th>KPS评分：</th>
-                            <td ng-bind="patientInfo.KPSScore">80</td>
-                            <th>病例分型：</th>
-                            <td ng-bind="patientInfo.PathologyType">腺癌</td>
-                        </tr>
-                        <tr>
-                            <th>肿瘤分期：</th>
-                            <td ng-bind="patientInfo.Tumortage">IIIB期</td>
-                            <th>基因检测：</th>
-                            <td ng-bind="patientInfo.IsGeneDetect">基因检测</td>
-                        </tr>
-                        <tr>
-                            <th>需答复时间：</th>
-                            <td ng-bind="patientInfo.RequiredReplyDate">2015-2-5</td>
-                            <th>EMS号码：</th>
-                            <td ng-bind="patientInfo.EMSNumber">ETS000200052</td>
-                        </tr>
-                        <tr>
-                            <th>销售员姓名：</th>
-                            <td ng-bind="patientInfo.SellerName">张三</td>
-                            <th>疾病诊断：</th>
-                            <td ng-bind="patientInfo.IsDiseaseDiagnosis">诊断</td>
-                        </tr>
-                        <tr>
-                            <th>开始买药时间：</th>
-                            <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
-                            <th>预计领药时间：</th>
-                            <td ng-bind="patientInfo.ExpectedLeadDate">2015-2-5</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <!--病历信息end-->
-
-
-        <!--b-->
-        <div class="lcwrap">
-            <div class="lcmc">初审</div>
-            <div class="lcbj yes float_l"></div>
-            <div class="lcnr float_l">
-                <!--
-                    <ul>
-                        <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
-                        <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
-                        <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
-                        <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
-                        <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
-                    </ul>
-                    -->
-            </div>
-        </div>
-        <!--end-->
-
-       
-            <!--b-->
-            <div class="lcwrap">
-                <div class="lcmc">资料上传</div>
-                <div class="lcbj yes float_l"></div>
-                <div class="lcnr float_l">
-                <table class="zlxz">
-                  <tr ng-repeat="file in filesList"><td><img src="../images/crumb_arr.png" width="4" height="8" /><a class="filename" href="{{file.FileGUIDName}}" target="_blank"> {{file.FileName}}</a></td><td align="right">{{file.FileAddDate}}</td></tr>
-                
-                  </table>
-                     <table class="pcb ">
-
+            <div class="nrframe2 mt_10">
+                <table class="pcb ">
                     <tr>
-                        <td style="text-align: left;width:35px;">
-                            <div class="upload">                             
-                                <input type="file" id="attachmentFile"/>上传附件                                
-                            </div>
-                        </td>
-                        <td>
-                             <div class="upload">
-                            <input name="btnUpload" id="btnUpload" type="button" class="btnsave" ng-click="addFiles()"/>全部上传
-                                 </div>
-                            <input name="patientID" id="patientID" value="{{patientInfo.UserID}}"  type="hidden" />
-                        </td>
+                        <th>患者姓名 ：</th>
+                        <td ng-bind="patientInfo.UserName"></td>
+                        <th>性别：</th>
+                        <td ng-bind="patientInfo.Gender"></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><div id="file-list"></div></td>
+                        <th>年龄：</th>
+                        <td ng-bind="patientInfo.Age"></td>
+                        <th>邮箱：</th>
+                        <td ng-bind="patientInfo.Mailbox"></td>
+                    </tr>
+                    <tr>
+                        <th>手机号：</th>
+                        <td ng-bind="patientInfo.MobilPhoneNumber"></td>
+                        <th>备用联系方式：</th>
+                        <td ng-bind="patientInfo.EmgPhoneNumber"></td>
+                    </tr>
+                    <tr>
+                        <th>身份证号：</th>
+                        <td colspan="2" ng-bind="patientInfo.IdentityNumber"></td>
+                    </tr>
+                    <tr>
+                        <th>省份：</th>
+                        <td ng-bind="patientInfo.Province"></td>
+                        <th>城市：</th>
+                        <td ng-bind="patientInfo.Address"></td>
+                    </tr>
+                    <tr>
+                        <th>常住地址：</th>
+                        <td colspan="2" ng-bind="patientInfo.Address"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <!--基本信息end-->
+    <!--b病历信息-->
+    <div class="lcwrap">
+        <div class="lcmc">病历信息</div>
+        <div class="lcbj yes float_l"></div>
+        <div class="lcnr float_l">
+            <div class="nrframe2 mt_10">
+                <table class="pcb ">
+                    <tr>
+                        <th>医院名称：</th>
+                        <td ng-bind="patientInfo.Hospital">华山医院</td>
+                        <th>主治医生：</th>
+                        <td ng-bind="patientInfo.Doctor">徐云龙</td>
+                    </tr>
+                    <tr>
+                        <th>首次用药时间：</th>
+                        <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
+                        <th>吸烟史：</th>
+                        <td ng-bind="patientInfo.SmokingHisType"></td>
+                    </tr>
+                    <tr>
+                        <th>KPS评分：</th>
+                        <td ng-bind="patientInfo.KPSScore">80</td>
+                        <th>病例分型：</th>
+                        <td ng-bind="patientInfo.PathologyType">腺癌</td>
+                    </tr>
+                    <tr>
+                        <th>肿瘤分期：</th>
+                        <td ng-bind="patientInfo.Tumortage">IIIB期</td>
+                        <th>基因检测：</th>
+                        <td ng-bind="patientInfo.IsGeneDetect">基因检测</td>
+                    </tr>
+                    <tr>
+                        <th>需答复时间：</th>
+                        <td ng-bind="patientInfo.RequiredReplyDate">2015-2-5</td>
+                        <th>EMS号码：</th>
+                        <td ng-bind="patientInfo.EMSNumber">ETS000200052</td>
+                    </tr>
+                    <tr>
+                        <th>销售员姓名：</th>
+                        <td ng-bind="patientInfo.SellerName">张三</td>
+                        <th>疾病诊断：</th>
+                        <td ng-bind="patientInfo.IsDiseaseDiagnosis">诊断</td>
+                    </tr>
+                    <tr>
+                        <th>开始买药时间：</th>
+                        <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
+                        <th>预计领药时间：</th>
+                        <td ng-bind="patientInfo.ExpectedLeadDate">2015-2-5</td>
                     </tr>
                 </table>
             </div>
         </div>
-        <!--end-->
+    </div>
+    <!--病历信息end-->
 
-        <!--c-->
+
+    <!--b-->
+    <div class="lcwrap">
+        <div class="lcmc">初审</div>
+        <div class="lcbj yes float_l"></div>
+        <div class="lcnr float_l">
+            <!--
+                <ul>
+                    <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
+                    <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
+                    <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
+                    <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
+                    <li><span class="float_l">贝达药业业务管理系统用户申请用药…</span><span class="float_r">2015-03-04</span></li>
+                </ul>
+                -->
+        </div>
+    </div>
+    <!--end-->
+
+       
+        <!--b-->
         <div class="lcwrap">
-            <div class="lcmc">终审</div>
-            <div class="lcbj float_l"></div>
+            <div class="lcmc">资料上传</div>
+            <div class="lcbj yes float_l"></div>
             <div class="lcnr float_l">
-                <div class="nrframe2 mt_10">
-                    <!--
-                        <table class="pcb ">
-                            <tr>
-                                <th>病人姓名 ：</th>
-                                <td>张三龙</td>
-                                <th>出生年月：</th>
-                                <td>1924-10-1</td>
-                            </tr>
-                            <tr>
-                                <th>性别：</th>
-                                <td>男</td>
-                                <th>手机号：</th>
-                                <td>13872635243</td>
-                            </tr>
-                            <tr>
-                                <th>身份证号：</th>
-                                <td>310987334476352455</td>
-                                <th>邮箱：</th>
-                                <td>200052</td>
-                            </tr>
-                            <tr>
-                                <th>省份：</th>
-                                <td>上海</td>
-                                <th>城市：</th>
-                                <td>上海</td>
-                            </tr>
-                            <tr>
-                                <th>常住地址：</th>
-                                <td>上海市徐汇区龙华路78号</td>
-                                <th>医院名称：</th>
-                                <td>华山医院</td>
-                            </tr>
-                            <tr>
-                                <th>主治医生：</th>
-                                <td>徐云龙</td>
-                                <th>病例分型：</th>
-                                <td>腺癌</td>
-                            </tr>
-                            <tr>
-                                <th>首次用药时间：</th>
-                                <td colspan="3">2015-2-5</td>
-                            </tr>
-                            <tr>
-                                <th>吸烟史：</th>
-                                <td colspan="3">1、不吸烟</td>
-                            </tr>
-                            <tr>
-                                <th>告知书：</th>
-                                <td colspan="3">
-                                    <textarea name="textarea" id="textarea4" cols="45" rows="5"></textarea>
-                                    <input type="checkbox" name="checkbox" id="checkbox4" />
-                                    已读</td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" style="text-align: center">
-                                    <input name="Search8" type="button" class="btnsave" value="提交修改" onclick="location.href = 'yycg.html'" /></td>
-                            </tr>
-                        </table>
+            <table class="zlxz">
+                <tr ng-repeat="file in filesList"><td><img src="../images/crumb_arr.png" width="4" height="8" /><a class="filename" href="{{file.FileGUIDName}}" target="_blank"> {{file.FileName}}</a></td><td align="right">{{file.FileAddDate}}</td></tr>
+                
+                </table>
+                    <table class="pcb ">
 
-                           -->
-                </div>
+                <tr>
+                    <td style="text-align: left;width:35px;">
+                        <div class="upload">                             
+                            <input type="file" id="attachmentFile"/>上传附件                                
+                        </div>
+                    </td>
+                    <td>
+                            <div class="upload">
+                        <input name="btnUpload" id="btnUpload" type="button" class="btnsave" ng-click="addFiles()"/>全部上传
+                                </div>
+                        <input name="patientID" id="patientID" value="{{patientInfo.UserID}}"  type="hidden" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="file-list"></div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--end-->
+
+    <!--c-->
+    <div class="lcwrap">
+        <div class="lcmc">终审</div>
+        <div class="lcbj float_l"></div>
+        <div class="lcnr float_l">
+            <div class="nrframe2 mt_10">
+                <!--
+                    <table class="pcb ">
+                        <tr>
+                            <th>病人姓名 ：</th>
+                            <td>张三龙</td>
+                            <th>出生年月：</th>
+                            <td>1924-10-1</td>
+                        </tr>
+                        <tr>
+                            <th>性别：</th>
+                            <td>男</td>
+                            <th>手机号：</th>
+                            <td>13872635243</td>
+                        </tr>
+                        <tr>
+                            <th>身份证号：</th>
+                            <td>310987334476352455</td>
+                            <th>邮箱：</th>
+                            <td>200052</td>
+                        </tr>
+                        <tr>
+                            <th>省份：</th>
+                            <td>上海</td>
+                            <th>城市：</th>
+                            <td>上海</td>
+                        </tr>
+                        <tr>
+                            <th>常住地址：</th>
+                            <td>上海市徐汇区龙华路78号</td>
+                            <th>医院名称：</th>
+                            <td>华山医院</td>
+                        </tr>
+                        <tr>
+                            <th>主治医生：</th>
+                            <td>徐云龙</td>
+                            <th>病例分型：</th>
+                            <td>腺癌</td>
+                        </tr>
+                        <tr>
+                            <th>首次用药时间：</th>
+                            <td colspan="3">2015-2-5</td>
+                        </tr>
+                        <tr>
+                            <th>吸烟史：</th>
+                            <td colspan="3">1、不吸烟</td>
+                        </tr>
+                        <tr>
+                            <th>告知书：</th>
+                            <td colspan="3">
+                                <textarea name="textarea" id="textarea4" cols="45" rows="5"></textarea>
+                                <input type="checkbox" name="checkbox" id="checkbox4" />
+                                已读</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center">
+                                <input name="Search8" type="button" class="btnsave" value="提交修改" onclick="location.href = 'yycg.html'" /></td>
+                        </tr>
+                    </table>
+
+                        -->
             </div>
         </div>
-        <!--end-->
+    </div>
+    <!--end-->
     </div>
     <!--流程 end-->
     <div class="lctitle">
-        <img src="images/arrow.gif" width="5" height="11" />
-        历史申请
+    <img src="images/arrow.gif" width="5" height="11" />
+    历史申请
     </div>
-    
 
     <!--  备注  --->
-
     <div class="lctitle">
-        <img src="images/arrow.gif" width="5" height="11" />
-        备注
+    <img src="images/arrow.gif" width="5" height="11" />
+    备注
     </div>
     <div class="lctitle">
     </div>
     <div class="blxx" ng-repeat="comment in commentsList">
-        <div class="nrframe2 mt_10">
-            <table class="pcb ">
-                <tr>
-                    <th colspan="4" style="text-align: left">{{comment.CommentOperater}} 添加了一个备注 {{comment.CommentDate}} </th>
-                </tr>
-                <tr>
-                    <td colspan="4" align="left" ng-bind="comment.CommentContent"></td>
-                </tr>
+    <div class="nrframe2 mt_10">
+        <table class="pcb ">
+            <tr>
+                <th colspan="4" style="text-align: left">{{comment.CommentOperater}} 添加了一个备注 {{comment.CommentDate}} </th>
+            </tr>
+            <tr>
+                <td colspan="4" align="left" ng-bind="comment.CommentContent"></td>
+            </tr>
 
-            </table>
-        </div>
+        </table>
+    </div>
 
     </div>
     <!--  备注  --->
     <div class="lctitle">
     </div>
     <div class="blxx">
-        <div class="nrframe2 mt_10">
-            <table class="pcb ">
+    <div class="nrframe2 mt_10">
+        <table class="pcb ">
 
-                <tr>
-                    <td colspan="4">
-                        <textarea name="textarea" cols="85" rows="5" id="commentContent"></textarea>
+            <tr>
+                <td colspan="4">
+                    <textarea name="textarea" cols="85" rows="5" id="commentContent"></textarea>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" style="text-align: left">
-                        <input name="Search8" type="button" class="btnsave" value="添加备注" ng-click="addComments()" /></td>
-                </tr>
-            </table>
-        </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: left">
+                    <input name="Search8" type="button" class="btnsave" value="添加备注" ng-click="addComments()" /></td>
+            </tr>
+        </table>
+    </div>
     </div>
     <!--  备注  --->
-
+    </form>
 </div>
 
 
-        </form>
-    </div>
-
-<script src="~/Scripts/jquery.MultiFile.js"></script>    
 <script src="~/Scripts/Admin/approveManage.js"></script>
 

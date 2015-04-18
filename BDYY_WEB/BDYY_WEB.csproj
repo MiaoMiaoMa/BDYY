@@ -326,9 +326,11 @@
     <Content Include="images\y2.png" />
     <Content Include="images\yydj.png" />
     <Content Include="Scripts\Admin\approveManage.js" />
+    <Content Include="Scripts\Admin\drugstoreManage.js" />
     <Content Include="Scripts\Admin\serviceManage.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\default.js" />
+    <Content Include="Scripts\Admin\general.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -381,6 +383,7 @@
     <Content Include="Views\Admin\AppointmentQueryList.cshtml" />
     <Content Include="Views\Admin\ServiceManage.cshtml" />
     <Content Include="Views\Admin\ApproveManage.cshtml" />
+    <Content Include="Views\Admin\DrugStoreList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

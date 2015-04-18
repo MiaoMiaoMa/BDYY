@@ -5,7 +5,7 @@
 
     $scope.SearchCondition = new Object();
     $scope.SearchCondition.searchType = '0';
-    $scope.SearchCondition.reviewType = '0';
+    $scope.SearchCondition.reviewType = '1';
     $scope.SearchCondition.content = '';
     
 

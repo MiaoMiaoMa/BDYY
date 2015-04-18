@@ -59,7 +59,7 @@ function ApproveManage($scope, $window, MyFactory)
         //更新
         MyFactory.callAJAX('../Admin/UpdateDepartOrStatus', data, 'JSON', function (data) {
             if (data && data.result) {
-                $scope.msg = "部门更新成功";
+                $scope.msg = isDepart ? "部门更新成功！" : "状态更新成功！";
             }
         }, null);
     }

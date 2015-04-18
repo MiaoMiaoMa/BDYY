@@ -1,4 +1,4 @@
-﻿function DrugStoreManage($scope) {
+﻿function DrugStoreManage($scope, $window) {
     $scope.currentPage = 1;
     $scope.pageSize = PAGESIZE;
 
@@ -18,6 +18,10 @@
 
     $scope.conditionCombin = function () {
         return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, department: '3', searchContentStart: $scope.SearchCondition.centent, searchContentEnd: "" };
+    }
+
+    $scope.showManagePage = function (uid) {
+        $window.location.href = "../Admin/ApproveManage?patientID=" + uid;
     }
 
     //初始化数据

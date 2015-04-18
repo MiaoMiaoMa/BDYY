@@ -1,4 +1,4 @@
-﻿function ServiceManage($scope) {
+﻿function ServiceManage($scope, $window) {
     $scope.currentPage = 1;
     $scope.pageSize = PAGESIZE;
 
@@ -20,14 +20,8 @@
         return { searchType: $scope.SearchCondition.searchType, reviewType: $scope.SearchCondition.reviewType, department: '2', searchContentStart: $scope.SearchCondition.centent, searchContentEnd: "" };
     }
 
-    //显示列表序号
-    $scope.showIndex = function (index) {
-        if ($scope.currentPage == 1) {
-            return index + 1;
-        }
-        else {
-            return ($scope.currentPage - 1) * PAGESIZE + index + 1;
-        }
+    $scope.showManagePage = function (uid) {
+        $window.location.href = "../Admin/ApproveManage?patientID=" + uid;
     }
 
     //初始化数据

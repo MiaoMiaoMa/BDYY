@@ -156,6 +156,19 @@ namespace DataProvider
                 user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
                 user.DepartmentID = GetReaderToString(reader["DepartmentID"]);
                 user.StatusID = GetReaderToString(reader["StatusID"]);
+
+                user.KPSScore = GetReaderToString(reader["KPS_Score"]);
+                user.Tumortage = GetReaderToString(reader["Tumor_tage"]);
+                user.IsGeneDetect = GetReaderToString(reader["IsGeneDetect"]);
+                user.RequiredReplyDate = GetReaderToDateTimeString(reader["Required_Reply_Date"]);
+                user.EMSNumber = GetReaderToString(reader["EMS_Number"]);
+                user.SellerName = GetReaderToString(reader["Seller_Name"]);
+                user.IsDiseaseDiagnosis = GetReaderToString(reader["IsDiseaseDiagnosis"]);
+                user.IsAccordFiveMouth = GetReaderToString(reader["IsAccordFiveMouth"]);
+                user.ExpectedLeadDate = GetReaderToDateTimeString(reader["Expected_Lead_Date"]);
+                user.IsAccordFiveMouth = GetReaderToString(reader["IsAccordFiveMouth"]);
+                user.CurrentDepartmentID = GetReaderToString(reader["CurrentDepartmentID"]);
+                user.CurrentStatusID = GetReaderToString(reader["CurrentStatusID"]);
             }
 
             return user;

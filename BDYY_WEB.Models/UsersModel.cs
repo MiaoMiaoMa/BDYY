@@ -44,5 +44,8 @@ namespace BDYY_WEB.Models
 
         public string DepartmentID { get; set; }
         public string StatusID { get; set; }
+
+        public string CurrentDepartmentID { get; set; }
+        public string CurrentStatusID { get; set; }
     }
 }

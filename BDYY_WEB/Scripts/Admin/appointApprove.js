@@ -7,7 +7,7 @@
     $scope.SearchCondition.searchType = '0';
     $scope.SearchCondition.reviewType = '1';
     $scope.SearchCondition.content = '';
-    
+        
 
     $scope.onSearch = function () {
         callAJAX('../Admin/GetAppointReviewList', $scope.conditionCombin(), 'JSON', function (data) {
@@ -15,6 +15,7 @@
                 $scope.patientList = data;
             }
         }, null);
+
     }
 
     $scope.conditionCombin = function () {

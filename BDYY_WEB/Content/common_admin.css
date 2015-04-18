@@ -500,3 +500,23 @@
 	color: #000;
 	font-weight: 300;
 }
+
+.btnsave {
+	font-family: "微软雅黑";
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	width: 90px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background: url(../images/bt_bg.png) 0px -30px no-repeat;
+	cursor: pointer;
+	font-size: 13px;
+	padding-bottom: 1px;
+}
+.btnsave:hover {
+	background: url(../images/bt_bg.png) 0px -60px no-repeat;
+}

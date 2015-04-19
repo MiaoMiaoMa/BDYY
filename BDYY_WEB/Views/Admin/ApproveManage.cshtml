@@ -17,14 +17,14 @@
                 <div class="brxm float_l" ng-bind="patientInfo.UserName"></div>
                 <div class="lcsearch float_1">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-            更改部门:
+            递转部门:
             <select class="input" size="1" id="departSelect" ng-change="updateDepartOrStatus(true)" ng-model="patientInfo.CurrentDepartmentID">
                 <option value="1">项目办公室</option>
                 <option value="2">客服部门</option>
                 <option value="3">药房</option>
 
             </select>
-                    更改状态:
+                    变更状态:
             <select class="input" size="1" id="statusSelect" ng-change="updateDepartOrStatus(false)" ng-model="patientInfo.CurrentStatusID">
                 <option value="4">待审核</option>
                 <option value="5">审核中</option>

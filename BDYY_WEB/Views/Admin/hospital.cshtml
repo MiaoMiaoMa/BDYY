@@ -13,71 +13,73 @@
 <script type="text/javascript" src="../Scripts/chart/msa/hospital.min.js"></script>
 <link rel="stylesheet" href="css/style.min.css">
 
- <div class="mainbox">
-     <div class="yarnlet">> 工作提醒</div>
- <table border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td>
-                <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 385px;">
-                    <tr>
-                        <td class="tdtitle"><b><span class="title" id="sp_pyramidtitle"></span></b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdchart">
-                            <div id="chart-pyramid"></div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table id="tabarea" cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 385px;">
-                    <tr>
-                        <td class="tdtitle"><b><span class="title" id="sp_areatitle"></span></b>
+<div class="mainbox">
+    <div class="yarnlet">> 医院数据统计</div>
+    <div class="nrframe mt_10 mr_10">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 385px;">
+                        <tr>
+                            <td class="tdtitle"><b><span class="title" id="sp_pyramidtitle"></span></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdchart">
+                                <div id="chart-pyramid"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="tabarea" cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 385px;">
+                        <tr>
+                            <td class="tdtitle"><b><span class="title" id="sp_areatitle"></span></b>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdchart">
-                            <div class="div_toolbar" style="text-align: right; font-family: '微软雅黑'; font-size: 14px;">
-                                <input type="radio" name="tab_area" id="btn_a_area" value="趋势图" checked="checked" /><label for="btn_a_area">趋势图</label>
-                                <input type="radio" name="tab_area" id="btn_a_pie" value="饼图" /><label for="btn_a_pie">饼图</label>
-                            </div>
-                            <div id="chart-area"></div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 335px;">
-                    <tr>
-                        <td class="tdtitle"><b><span class="title" id="sp_scattertitle"></span></b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdchart">
-                            <div id="chart-scatter"></div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 335px;">
-                    <tr>
-                        <td class="tdtitle"><b><span class="title" id="sp_columntitle"></span></b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdchart">
-                            <div id="chart-column"></div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-     </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdchart">
+                                <div class="div_toolbar" style="text-align: right; font-family: '微软雅黑'; font-size: 14px;">
+                                    <input type="radio" name="tab_area" id="btn_a_area" value="趋势图" checked="checked" /><label for="btn_a_area">趋势图</label>
+                                    <input type="radio" name="tab_area" id="btn_a_pie" value="饼图" /><label for="btn_a_pie">饼图</label>
+                                </div>
+                                <div id="chart-area"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 335px;">
+                        <tr>
+                            <td class="tdtitle"><b><span class="title" id="sp_scattertitle"></span></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdchart">
+                                <div id="chart-scatter"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table cellspacing="0" cellpadding="0" class="charttable" style="width: 550px; height: 335px;">
+                        <tr>
+                            <td class="tdtitle"><b><span class="title" id="sp_columntitle"></span></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdchart">
+                                <div id="chart-column"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 
 

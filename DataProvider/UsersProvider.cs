@@ -194,8 +194,8 @@ namespace DataProvider
                 //user.EmgPhoneNumber = GetReaderToString(reader["Emg_PhoneNumber"]);
                 user.IdentityNumber = GetReaderToString(reader["Identity_number"]);
                 user.Mailbox = GetReaderToString(reader["Mailbox"]);
-                //user.Province = GetReaderToString(reader["Province_Name"]);
-                //user.City = GetReaderToString(reader["City_Name"]);
+                user.Province = GetReaderToString(reader["Province_Name"]);
+                user.City = GetReaderToString(reader["City_Name"]);
                 //user.Address = GetReaderToString(reader["Permanent_Address"]);
                 //user.RegistrationDate = GetReaderToDateTimeString(reader["Registration_Date"]);
                 user.Hospital = GetReaderToString(reader["Hospital_Name"]);

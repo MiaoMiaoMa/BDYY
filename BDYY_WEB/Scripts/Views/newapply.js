@@ -17,7 +17,7 @@ function ApllyFor($scope, $window) {
         var patientData = { data: JSON.stringify($scope.PatientOtherInfo) };
         callAJAX('../Account/AddApplyFor', patientData, 'JSON', function (data) {
             if (data.IsSuccess) {
-                $window.location.href = "../Account/StatusCheck";
+                $window.location.href = "../Account/ApplyStatusCheck";
             }
             else {
                 if (data.errormsg != "")
@@ -36,7 +36,7 @@ function ApplyForAgain($scope, $window)
     $scope.add = function () {
         callAJAX('../Account/AddApplyForAgain?emsNumber=' + $scope.EMSNumber, null, 'JSON', function (data) {
             if (data.IsSuccess) {
-                $window.location.href = "../Account/StatusCheck";
+                $window.location.href = "../Account/ApplyStatusCheck";
             }
             else {
                 if (data.errormsg != "") {

@@ -99,6 +99,8 @@ namespace BDYY_WEB.Controllers
                 if (!db.CheckApplyIsExist(Session[USRID].ToString()))
                 {
                     result = db.UpdatePatientOtherInfo(patient);
+                    //更新完首次申请信息，然后提交一条申请
+                    db.UpdatePatientAgainInfo(Session[USRID].ToString(), patient.EMSNumber);
                 }
                 else
                 {

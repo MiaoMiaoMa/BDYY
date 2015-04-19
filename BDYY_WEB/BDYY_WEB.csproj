@@ -462,6 +462,8 @@
     <Content Include="Views\Admin\ApproveManage.cshtml" />
     <Content Include="Views\Admin\DrugStoreList.cshtml" />
     <Content Include="Views\Admin\Doctor.cshtml" />
+    <Content Include="Views\Admin\geography.cshtml" />
+    <Content Include="Views\Admin\hospital.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

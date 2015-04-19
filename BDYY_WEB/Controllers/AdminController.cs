@@ -66,6 +66,21 @@ namespace BDYY_WEB.Controllers
             return View();
         }
 
+        public ActionResult Doctor()
+        {
+            return View();
+        }
+
+        public ActionResult hospital()
+        {
+            return View();
+        }
+
+        public ActionResult geography()
+        {
+            return View();
+        }
+
         #endregion
 
 

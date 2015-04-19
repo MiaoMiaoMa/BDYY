@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<script type="text/javascript" src="../Scripts/chart/fusioncharts/js/fusioncharts.js"></script>
+<!--<script type="text/javascript" src="js/fusioncharts/js/fusioncharts.maps.js"></script>-->
+<script type="text/javascript" src="../Scripts/chart/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+<script type="text/javascript" src="../Scripts/chart/msa/msa.common.min.js"></script>
+<script type="text/javascript" src="../Scripts/chart/msa/msa.config.min.js"></script>
+<script type="text/javascript" src="../Scripts/chart/msa/msa.demodata.geography.min.js"></script>
+<script type="text/javascript" src="../Scripts/chart/msa/geography.min.js"></script>
+<link rel="stylesheet" href="css/style.min.css">
+
+ <div class="mainbox">
+     <div class="yarnlet">> 工作提醒</div>
+<TABLE border="0" cellspacing="0" cellpadding="0">
+<TR>
+	<TD>
+        <table cellspacing="0" cellpadding="0" class="charttable" style="width:550px;height:385px;">
+            <tr>
+                <td class="tdtitle"><b><span class="title" id="sp_maptitle"></span></b></td>
+            </tr>
+            <tr>
+                <td class="tdchart"><div id="chart-map"></div></td>
+            </tr>
+        </table>
+	</TD>
+	<TD>
+        <table cellspacing="0" cellpadding="0" class="charttable" style="width:550px;height:385px;">
+            <tr>
+                <td class="tdtitle"><b><span class="title" id="sp_trendtitle"></span></b>
+                    <div class="div_toolbar" style="display:none; text-align:right; float:right;">
+                        <input id="btn_a_trend" type="button" value="<<全部" />
+                        <input id="btn_d_trend" type="button" value="明细>>" style="display:none;"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdchart">        
+                    <div id="chart-trend"></div>
+                </td>
+            </tr>
+        </table>
+	</TD>
+</TR>
+<TR>
+	<TD>
+        <table cellspacing="0" cellpadding="0" class="charttable" style="width:550px;height:335px;">
+            <tr>
+                <td class="tdtitle"><b><span class="title" id="sp_bubbletitle"></span></b>
+                    <div class="div_toolbar" style="display:none; text-align:right; float:right;">
+                        <input id="btn_a_bubble" type="button" value="<<全部" />
+                        <input id="btn_d_bubble" type="button" value="明细>>" style="display:none;"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdchart">        
+                    <div id="chart-bubble"></div>
+                </td>
+            </tr>
+        </table>
+	</TD>
+	<TD>
+        <table cellspacing="0" cellpadding="0" class="charttable" style="width:550px;height:335px;">
+            <tr>
+                <td class="tdtitle"><b><span class="title" id="sp_columntitle"></span></b>
+                    <div class="div_toolbar" style="display:none; text-align:right; float:right;">
+                        <input id="btn_a_column" type="button" value="<<全部" />
+                        <input id="btn_d_column" type="button" value="明细>>" style="display:none;"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdchart">        
+                    <div id="chart-column"></div>
+                </td>
+            </tr>
+        </table>
+	</TD>
+</TR>
+</TABLE>
+     </div>
+
+

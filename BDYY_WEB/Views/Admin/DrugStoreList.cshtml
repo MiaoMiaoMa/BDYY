@@ -29,6 +29,7 @@
 
                                         -->
                                 </select>
+                            <!--
                             <select size="1" name="D77" class="input" ng-model="SearchCondition.reviewType">
                                 <option value="0"></option>
                                 <option value="4">待审核</option>
@@ -37,6 +38,7 @@
                                 <option value="7">审核通过</option>
                                 <option value="8">终结</option>
                             </select>
+                                -->
                         </td>
                         <td>
                             <input type="text" name="T1" class="input" ng-model="SearchCondition.content" />
@@ -72,7 +74,7 @@
                         <td ng-bind="patient.Province"></td>
                         <td ng-bind="patient.City">
                         <td>
-                            <input name="Search2" type="button" class="bt_add" value="查看" ng-click="showManagePage(patient.UserID)"  />
+                            <input name="Search2" type="button" class="bt_add" value="查看" ng-click="showApprove(patient.UserID)" />
                             <!--  <input name="Search2" type="button"class="bt_add" value="删除" />-->
                     </tr>
 
@@ -84,6 +86,91 @@
         <!--nr end-->
     </div>
     <!--end-->
+
+    <div id="ApproveDiv" style="display: none">
+        <div class="bg"></div>
+        <div style="width: 750px; height: 550px; left: 292.5px; top: -257px; display: block;" class="pop_up_box">
+            <div class="pop_up_contnet">
+                <div class="pop_up_contnet_top">
+                    <div class="edialogheaderbg_l">
+                        <div class="edialogheaderbg_r">
+                            <div class="edialogheadertitle" name="DragTitle">发药登记</div>
+                            <div ng-click="closeSE()" class="edialogclose" title="点此关闭"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Guide_content">
+                    <div class="edialogbodybg_l">
+                        <div class="edialogbodybg_r">
+                            <div class="edialogbody">
+                                <div class="l_height_30 mr_10" class="l_height_30 mr_10">
+                                    <div class="mt_5  gridiframe border_t_n" style="overflow-y: scroll; max-height: 550px;">
+
+                                        <div class="nrframe2 mt_10">
+                                            <table class="pcb ">
+                                                <tr>
+                                                    <th>病人姓名 ：</th>
+                                                    <td ng-bind="patientInfo.UserName"></td>
+                                                    <th>出生年月：</th>
+                                                    <td ng-bind="patientInfo.Birthday"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>身份证号：</th>
+                                                    <td ng-bind="patientInfo.IdentityNumber"></td>
+                                                    <th>性别：</th>
+                                                    <td ng-bind="patientInfo.Gender"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th>手机号：</th>
+                                                    <td ng-bind="patientInfo.MobilPhoneNumber"></td>
+                                                    <th>邮箱：</th>
+                                                    <td ng-bind="patientInfo.Mailbox"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>省份：</th>
+                                                    <td ng-bind="patientInfo.Province"></td>
+                                                    <th>城市：</th>
+                                                    <td ng-bind="patientInfo.City"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>常住地址：</th>
+                                                    <td ng-bind="patientInfo.Address"></td>
+                                                    <th>发药数量（盒）：</th>
+                                                    <td >4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>用药剂量：</th>
+                                                    <td >160mg</td>
+                                                    <th>指定药房：</th>
+                                                    <td>英特怡年药房</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>发药批号：</th>
+                                                    <td>SH00237</td>
+                                                    <th>对应销售：</th>
+                                                    <td ng-bind="patientInfo.SellerName"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" style="text-align: center">
+                                                        <input name="Search8" type="button" class="btnsave" value="审核同意" ng-click="approve()" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='edialogfooterbg_l'>
+                <div class='edialogfooterbg_r'>
+                    <div class='edialogfooterbg'></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="~/Scripts/Admin/drugstoreManage.js"></script>

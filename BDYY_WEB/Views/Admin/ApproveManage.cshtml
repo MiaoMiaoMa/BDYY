@@ -91,45 +91,45 @@
                         <table class="pcb ">
                             <tr>
                                 <th>医院名称：</th>
-                                <td ng-bind="patientInfo.Hospital">华山医院</td>
+                                <td ng-bind="patientInfo.Hospital"></td>
                                 <th>主治医生：</th>
-                                <td ng-bind="patientInfo.Doctor">徐云龙</td>
+                                <td ng-bind="patientInfo.Doctor"></td>
                             </tr>
                             <tr>
                                 <th>首次用药时间：</th>
-                                <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
+                                <td ng-bind="patientInfo.FirstUseDate"></td>
                                 <th>吸烟史：</th>
-                                <td ng-bind="patientInfo.SmokingHisType"></td>
+                                <td ng-bind="SmokingHisType"></td>
                             </tr>
                             <tr>
                                 <th>KPS评分：</th>
-                                <td ng-bind="patientInfo.KPSScore">80</td>
+                                <td ng-bind="patientInfo.KPSScore"></td>
                                 <th>病例分型：</th>
-                                <td ng-bind="patientInfo.PathologyType">腺癌</td>
+                                <td ng-bind="patientInfo.PathologyType"></td>
                             </tr>
                             <tr>
                                 <th>肿瘤分期：</th>
-                                <td ng-bind="patientInfo.Tumortage">IIIB期</td>
+                                <td ng-bind="patientInfo.TumortageViewText"></td>
                                 <th>基因检测：</th>
-                                <td ng-bind="patientInfo.IsGeneDetect">基因检测</td>
+                                <td ng-bind="patientInfo.IsGeneDetect == '1' ? '是' : '否'"></td>
                             </tr>
                             <tr>
                                 <th>需答复时间：</th>
-                                <td ng-bind="patientInfo.RequiredReplyDate">2015-2-5</td>
+                                <td ng-bind="patientInfo.RequiredReplyDate"></td>
                                 <th>EMS号码：</th>
-                                <td ng-bind="patientInfo.EMSNumber">ETS000200052</td>
+                                <td ng-bind="patientInfo.EMSNumber"></td>
                             </tr>
                             <tr>
                                 <th>销售员姓名：</th>
-                                <td ng-bind="patientInfo.SellerName">张三</td>
+                                <td ng-bind="patientInfo.SellerName"></td>
                                 <th>疾病诊断：</th>
-                                <td ng-bind="patientInfo.IsDiseaseDiagnosis">诊断</td>
+                                <td ng-bind="patientInfo.IsDiseaseDiagnosis == '1' ? '是' : '否'"></td>
                             </tr>
                             <tr>
                                 <th>开始买药时间：</th>
-                                <td ng-bind="patientInfo.FirstUseDate">2015-2-5</td>
+                                <td ng-bind="patientInfo.FirstUseDate"></td>
                                 <th>预计领药时间：</th>
-                                <td ng-bind="patientInfo.ExpectedLeadDate">2015-2-5</td>
+                                <td ng-bind="patientInfo.ExpectedLeadDate"></td>
                             </tr>
                         </table>
                     </div>

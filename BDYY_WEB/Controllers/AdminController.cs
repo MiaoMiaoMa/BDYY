@@ -66,16 +66,19 @@ namespace BDYY_WEB.Controllers
             return View();
         }
 
+        [SessionExpireFilter]
         public ActionResult Doctor()
         {
             return View();
         }
 
+        [SessionExpireFilter]
         public ActionResult hospital()
         {
             return View();
         }
 
+        [SessionExpireFilter]
         public ActionResult geography()
         {
             return View();

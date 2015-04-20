@@ -35,6 +35,7 @@ namespace BDYY_WEB.Models
         public string ExpectedLeadDate { get; set; }
         public string KPSScore { get; set; }
         public string Tumortage { get; set; }
+        public string TumortageViewText { get; set; }
         public string IsGeneDetect { get; set; }
         public string RequiredReplyDate { get; set; }
         public string EMSNumber { get; set; }

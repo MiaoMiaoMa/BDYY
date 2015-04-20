@@ -142,6 +142,7 @@ namespace DataProvider
                 user.FirstUseDate = GetReaderToDateTimeString(reader["First_Use_Date"]);
                 user.Gender = GetReaderToString(reader["Gender"]);
                 user.Birthday = GetReaderToDateTimeString(reader["Birthday"]);
+                user.Age = CalculateAgeByBirthDay(user.Birthday).ToString();
                 user.MobilPhoneNumber = GetReaderToString(reader["Mobil_PhoneNumber"]);
                 user.EmgPhoneNumber = GetReaderToString(reader["Emg_PhoneNumber"]);
                 user.IdentityNumber = GetReaderToString(reader["Identity_number"]);
@@ -156,9 +157,10 @@ namespace DataProvider
                 user.SmokingHis = reader["Smoking_history"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Smoking_history"].ToString());
                 user.DepartmentID = GetReaderToString(reader["DepartmentID"]);
                 user.StatusID = GetReaderToString(reader["StatusID"]);
-
+                user.PathologyType = GetReaderToString(reader["Pathology_Type"]);
                 user.KPSScore = GetReaderToString(reader["KPS_Score"]);
                 user.Tumortage = GetReaderToString(reader["Tumor_tage"]);
+                user.TumortageViewText = MenuModels.TumortageMenu.Find(x => x.ItemID == user.Tumortage).ItemValue;
                 user.IsGeneDetect = GetReaderToString(reader["IsGeneDetect"]);
                 user.RequiredReplyDate = GetReaderToDateTimeString(reader["Required_Reply_Date"]);
                 user.EMSNumber = GetReaderToString(reader["EMS_Number"]);
